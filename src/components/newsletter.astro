@@ -1,0 +1,96 @@
+---
+import { translation } from "../i18n/utils";
+
+const {newsletter} = translation();
+const {title, desc, form} = newsletter;
+---
+
+<section>
+  <div class="content">
+    <div class="desc">
+      <h2 class="title">{title}</h2>
+      <small><b>{desc}</b></small>
+    </div>
+    <div>
+      <form action="">
+        <div class="email">
+          <input type="email" placeholder={form.placeholder}>
+          <button type="submit"><h4 class="title">{form.btn}</h4></button>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="" id="">
+          <small>{form.consent}</small>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="" id="">
+          <small>{form.terms}</small>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+section {
+  padding: 4em;
+  background-color: black;
+  .content {
+    margin: auto 0 ;
+    display: flex;
+    justify-content: space-between;
+    .desc {
+      display: flex;
+      max-width: 600px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    form {
+      max-width: 440px;
+      input {
+        color: grey;
+        border: 1px solid var(--grey);
+        background: var(--darkgrey);
+      }
+      .email {
+        position: relative;
+        margin-bottom: 1em;
+        input {
+          width: 100%;
+          height: 45px;
+          padding-left: 1em;
+        }
+        button {
+          top: 2px;
+          right: 2px;
+          height: 41px;
+          position: absolute;
+          border-radius: 0px;
+          background: var(--gd-violet);
+          align-items: center;
+          display: flex;
+        }
+      }
+      .checkbox {
+        gap: 1em;
+        display: flex;
+        margin-bottom: 1em;
+        input {
+          min-width: 22px;
+          min-height: 22px;
+          color-scheme: dark;
+          accent-color: var(--grey);
+        }
+      }
+    }
+  }
+  @media (max-width:1000px) {
+    .content {
+      gap: 3em;
+      margin: 0 auto;
+      display: flex;
+      max-width: 500px;
+      flex-direction: column;
+    }
+  }
+}
+</style>
