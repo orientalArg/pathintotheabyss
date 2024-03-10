@@ -1,0 +1,120 @@
+---
+import Newsletter from "./newsletter.astro"
+import { translation } from "../i18n/utils";
+import links from "../utils/links.json"
+
+const {menu, svg} = translation();
+
+const {nav, pages} = menu;
+
+const {gameplay, reviews, requirements, newsletter, abyss} = nav;
+
+const {contact, world, devlog, art} = pages;
+---
+<section class="wrapper" id="menu_wrapper">
+  <button class="close" id="menu_close">x</button>
+  <div class="content">
+    <div class="column">
+      <ul>
+        <li><h2 class="title">{nav.title}</h2></li>
+        <li><a href="/#gameplay">{gameplay}</a></li>
+        <li><a href="/#reviews">{reviews}</a></li>
+        <li><a href="/#specs">{requirements}</a></li>
+        <li><a href="/#newsletter">{newsletter}</a></li>
+        <li><a href="/#abyss">{abyss}</a></li>
+      </ul>
+      <div class="contact">
+        <p>{menu.reach}</p>
+        <nav>
+          <img src="/logo.svg" alt=""><a href="">brainstorm films</a>
+        </nav>
+      </div>
+    </div>
+    <div class="column">
+      <ul>
+        <li><h2 class="title">{pages.title}</h2></li>
+        <li><a href="">{contact}</a></li>
+        <li><a href="">{world}</a></li>
+        <li><a href="">{devlog}</a></li>
+        <li><a href="">{art}</a></li>
+      </ul>
+      <div class="contact">
+        <p>{menu.follow}</p>
+        <nav>
+          <a href={links.discord}><img src="/icons/discord.svg" alt=""></a>
+          <a href={links.youtube}><img src="/icons/youtube.svg" alt=""></a>
+          <a href={links.twitter}><img src="/icons/twitter.svg" alt=""></a>
+        </nav>
+      </div>
+    </div>
+    <div class="map"><img src={svg.map} alt=""></div>
+  </div>
+  <Newsletter/>
+</section>
+<script>
+  const wrapper = document.getElementById('menu_wrapper');
+  const btnClose =  document.getElementById('menu_close');
+
+  btnClose!.onclick = () => {return wrapper!.style.display = "none"}
+</script>
+
+<style lang="scss">
+.wrapper {
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: end;
+  padding-bottom:0;
+  position: sticky;
+  background: var(--black);
+  animation: slide_in_bottom ease-out 200ms;
+  .close {
+    top: 1em;
+    right: 4em;
+    z-index: 10;
+    position: absolute;
+  }
+  .content {
+    display: flex;
+    padding: 4em 4em 0;
+    position: relative;
+    justify-content: space-between;
+    .column {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      ul {
+        .title {
+          margin-bottom: .5em;
+          text-transform: capitalize;
+        }
+        li {
+          list-style: none;
+          margin-bottom: 1em;
+        }
+      }
+      .contact nav {
+        gap: .5em;
+        display: flex;
+        align-items: center;
+        img { height:30px;margin-top:1em;}
+      }
+    }
+    .map {width: 440px;}
+    &::after {
+      left:50%;
+      bottom:-25px;
+      content:'';
+      width: 90%;
+      height: 1px;
+      z-index: 10;
+      position: absolute;
+      transform: translateX(-50%);
+      background: var(--darkgrey);
+    }
+  }
+}
+</style>
