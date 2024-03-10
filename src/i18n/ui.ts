@@ -199,7 +199,7 @@ export const ui = {
     },
     'abyss':{
       'story': {
-        'first':"El Abismo nunca ha estado tan vivo como ahora.El abismo es un lugar oscuro ubicado en un ambiente lúgubre del Gran Buenos Aires.",
+        'first':"El Abismo nunca ha estado tan vivo como ahora. El abismo es un lugar oscuro ubicado en un ambiente lúgubre del Gran Buenos Aires.",
         'second':" Embárcate en un viaje sangriento a través del siniestro mundo abierto del abismo.",
         'third':"THE PATH INTO THE ABYSS aprovecha al máximo el potencial de Unreal Engine, ofreciendo gráficos de vanguardia y una inmersión incomparable en el mundo del juego.",
         'fourth':"Su avanzado sistema de inteligencia artificial obliga al superviviente a planificar con antelación cuando se acerca a los enemigos.",

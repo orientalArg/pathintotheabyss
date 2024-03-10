@@ -5,7 +5,7 @@ function changeLang() {
 }
 
 export function translation() {
-  let defaultLang = ui.es;
+  let defaultLang = ui.en;
  
   return defaultLang;
 }
