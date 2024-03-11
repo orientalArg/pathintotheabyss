@@ -1,5 +1,4 @@
 ---
-import Newsletter from "./newsletter.astro"
 import { translation } from "../i18n/utils";
 import links from "../utils/links.json"
 
@@ -49,7 +48,7 @@ const {contact, world, devlog, art} = pages;
     </div>
     <div class="map"><img src={svg.map} alt=""></div>
   </div>
-  <Newsletter/>
+  <slot />
 </section>
 <script>
   const wrapper = document.getElementById('menu_wrapper');
