@@ -1,0 +1,89 @@
+---
+import Links from "./links.astro";
+const {svg, abyss} = Astro.props;
+---
+
+<section class="abyss" id="abyss">
+  <div class="_title">
+    <img src={svg.theabyss} alt="a">
+  </div>
+  <div class="content">
+    <div class="story">
+      <p>{abyss.story.first}</p>
+      <p>{abyss.story.second}</p>
+      <p>{abyss.story.third}</p>
+      <p>{abyss.story.fourth}</p>
+      <p>{abyss.story.fifth}</p>
+      <p>{abyss.story.sixth}</p>
+      <p>{abyss.story.seventh}</p>
+    </div>
+    <div class="grid">
+      <img src="/images/hero.png" alt="">
+      <img src="/images/hero.png" alt="">
+      <img src="/images/hero.png" alt="">
+      <img src="/images/hero.png" alt="">
+    </div>
+  </div>
+  <div class="links">
+    <Links />
+  </div>
+</section>
+
+<style lang="scss">
+.abyss {
+  height: auto;
+  position: relative;
+  padding-bottom: 20em;
+  background-size: cover;
+  background-image: url(/images/stone_figure.png);
+  ._title img {
+    padding: 4vw;
+    margin: 0 auto;
+    display: block;
+  }
+  .content {
+    gap: 2.5em;
+    display: flex;
+    justify-content: space-between;
+    .story {
+      width: 100%;
+      max-width: 450px;
+      p {
+        margin: 1em 0;
+      }
+    }
+    .grid {
+      gap: 3px;
+      width: fit-content;
+      display: grid;
+      grid-template-rows: auto, 235px;
+      grid-template-columns: repeat(2, minmax(250px, 1fr));
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  .links {
+    left: 0;
+    bottom: 2em;
+    width: 100%;
+    position: absolute;
+  }
+}
+@media (max-width:1200px) {
+  .abyss .content {
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    .grid {
+      grid-template-columns: repeat(2, minmax(250px, 1fr));
+    }
+  }
+}
+@media (max-width:700px) {
+  .abyss .content .grid {
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
+  }
+}
+</style>
