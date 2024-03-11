@@ -58,16 +58,18 @@ const {menu} = btn;
       padding-left: 4em;
       align-items: center;
       justify-content: space-between;
-      .nav a {
-        margin: 0 1em;
-      }
+      .nav a { margin: 0 1em;}
       .buttons {
+        gap: 1em;
         display: flex;
         align-items: center;
-        .btn_lang {
+        button {
           gap: 1em;
-          border: none;
           display: flex;
+        }
+        .btn_lang {
+          padding: 0;
+          border: none;
           p { 
             display: none;
             animation: slide_in_right ease-out 300ms ;
@@ -76,21 +78,13 @@ const {menu} = btn;
             display: block;
           }
         }
-        .btn_menu {
-          gap: 3px;
-          display: flex;
-        }
       }
     }
     @media (max-width:1000px) {
       .content {
         padding-left: 0;
         nav { display: none;}
-        .buttons {
-          width: 100%;
-          justify-content: space-between;
-          .btn_lang p { display: block;}
-        }
+        .buttons { margin-left: auto;}
       }
     }
   }

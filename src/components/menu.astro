@@ -3,57 +3,53 @@ import { translation } from "../i18n/utils";
 import links from "../utils/links.json"
 
 const {menu, svg} = translation();
-
 const {nav, pages} = menu;
 
 const {gameplay, reviews, requirements, newsletter, abyss} = nav;
-
 const {contact, world, devlog, art} = pages;
 ---
 <section class="wrapper" id="menu_wrapper">
   <button class="close" id="menu_close">x</button>
   <div class="content">
-    <div class="column">
-      <ul>
-        <li><h2 class="title">{nav.title}</h2></li>
-        <li><a href="/#gameplay">{gameplay}</a></li>
-        <li><a href="/#reviews">{reviews}</a></li>
-        <li><a href="/#specs">{requirements}</a></li>
-        <li><a href="/#newsletter">{newsletter}</a></li>
-        <li><a href="/#abyss">{abyss}</a></li>
-      </ul>
-      <div class="contact">
+    <ul class="column">
+      <li><h2 class="title">{nav.title}</h2></li>
+      <li><a href="/#gameplay">{gameplay}</a></li>
+      <li><a href="/#reviews">{reviews}</a></li>
+      <li><a href="/#specs">{requirements}</a></li>
+      <li><a href="/#newsletter">{newsletter}</a></li>
+      <li><a href="/#abyss">{abyss}</a></li>
+      <li class="contact">
         <p>{menu.reach}</p>
         <nav>
           <img src="/logo.svg" alt=""><a href="">brainstorm films</a>
         </nav>
-      </div>
-    </div>
-    <div class="column">
-      <ul>
-        <li><h2 class="title">{pages.title}</h2></li>
-        <li><a href="">{contact}</a></li>
-        <li><a href="">{world}</a></li>
-        <li><a href="">{devlog}</a></li>
-        <li><a href="">{art}</a></li>
-      </ul>
-      <div class="contact">
+      </li>
+    </ul>
+    <ul class="column">
+      <li><h2 class="title">{pages.title}</h2></li>
+      <li><a href="">{contact}</a></li>
+      <li><a href="">{world}</a></li>
+      <li><a href="">{devlog}</a></li>
+      <li><a href="">{art}</a></li>
+      <li class="contact">
         <p>{menu.follow}</p>
         <nav>
           <a href={links.discord}><img src="/icons/discord.svg" alt=""></a>
           <a href={links.youtube}><img src="/icons/youtube.svg" alt=""></a>
           <a href={links.twitter}><img src="/icons/twitter.svg" alt=""></a>
         </nav>
-      </div>
+      </li>
+    </ul>
+    <div class="map">
+      <img src={svg.map} alt="">
     </div>
-    <div class="map"><img src={svg.map} alt=""></div>
   </div>
-  <slot />
+  <div class="newletter">
+    <slot />
+  </div>
 </section>
 
 <style lang="scss">
-
-/// 1100px change media query
 .wrapper {
   top: 0;
   left: 0;
@@ -81,24 +77,31 @@ const {contact, world, devlog, art} = pages;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      ul {
-        .title {
-          margin-bottom: .5em;
-          text-transform: capitalize;
-        }
-        li {
-          list-style: none;
-          margin-bottom: 1em;
-        }
+      .title {
+        margin-bottom: .5em;
+        text-transform: capitalize;
       }
-      .contact nav {
-        gap: .5em;
-        display: flex;
-        align-items: center;
-        img { height:30px;margin-top:1em;}
+      li {
+        list-style: none;
+        width: fit-content;
+        margin-bottom: 1em;
+      }
+      .contact {
+        margin-top:1em;
+        nav {
+          gap: .5em;
+          display: flex;
+          align-items: center;
+          margin-top:.5em;
+          img {
+            height:30px;
+          }
+        }
       }
     }
-    .map {width: 440px;}
+    .map {
+      width: 440px;
+    }
     &::after {
       left:50%;
       bottom:-25px;
@@ -109,6 +112,28 @@ const {contact, world, devlog, art} = pages;
       position: absolute;
       transform: translateX(-50%);
       background: var(--darkgrey);
+    }
+  }
+}
+@media (max-width:1100px) {
+  .wrapper .content {
+    gap: 10vw;
+    justify-content: center;
+    .map { display: none;}
+  }
+}
+@media (max-width:800px) {
+  .wrapper .content {
+    gap: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .column {
+      align-items: center;
+      .contact nav {
+        justify-content: center;
+      }
     }
   }
 }
