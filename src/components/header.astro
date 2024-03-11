@@ -1,6 +1,5 @@
 ---
-import {translation} from '../i18n/utils.ts'
-const {nav, btn} = translation();
+const {nav, btn} = Astro.props;
 
 const {art, contact, devLog} = nav;
 const {menu} = btn;

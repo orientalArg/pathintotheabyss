@@ -1,6 +1,7 @@
 ---
 import MainLayout from '../layout/mainLayout.astro'
 import Header from '../components/header.astro'
+import Hero from '../components/hero.astro'
 import Links from '../components/links.astro'
 import Reviews from '../components/reviews.astro'
 import Newsletter from '../components/newsletter.astro'
@@ -10,7 +11,7 @@ import Gameplay from '../components/gameplay.astro'
 import Specs from '../components/specs.astro'
 import Abyss from '../components/abyss.astro'
 
-const {btn, svg, preorder, gameplay, specs, newsletter, abyss} = translation();
+const {btn, svg, preorder, nav, gameplay, specs, newsletter, abyss} = translation();
 
 const desc = gameplay.intro;
 const title = desc;
@@ -22,35 +23,9 @@ const logo = "/logo.svg";
     <Newsletter {newsletter} />
   </Menu>
 
-  <section class="hero">
-    <Header/>
-    <div class="middle">
-      <img class="_title" src={svg.name} alt="">
-      <div class="cta">
-        <button>{btn.learn}</button>
-        <button class="reserve">
-          {btn.reserve}
-          <img src="/icons/steam.svg" alt="">
-        </button>
-      </div>
-    </div>
-    <div class="bottom">
-      <small>
-        {preorder}
-      </small>
-      <div class="icons">
-        <div>
-          <img src="/icons/microsoft.svg" alt="">
-          <img src="/icons/steam.svg" alt="">
-          <img src="/icons/epic.svg" alt="">
-        </div>
-        <button>
-          <p>{btn.play}</p>
-          <img src="/icons/play.svg" alt="">
-        </button>
-      </div>
-    </div>
-  </section>
+  <Hero {btn} {svg} {preorder} >
+    <Header {nav} {btn} />
+  </Hero>
 
   <Links />
 
@@ -66,63 +41,11 @@ const logo = "/logo.svg";
 
   <script>
     const wrapper = document.getElementById('menu_wrapper');
-    const btn =  document.getElementById('menu_open');
+    const btnOpen =  document.getElementById('menu_open');
+    const btnClose =  document.getElementById('menu_close');
 
-    btn!.onclick = () => {return wrapper!.style.display = "block"}
+    btnOpen!.onclick = () => {return wrapper!.style.display = "block"}
+    btnClose!.onclick = () => {return wrapper!.style.display = "none"}
   </script>
 
 </MainLayout>
-
-<style lang="scss">
-  .hero {
-    gap: 7vw;
-    display: flex;
-    flex-direction: column;
-    background: url(/images/hero.png);
-    background-position:center center;
-    background-size: cover;
-    max-height: 850px;
-    .middle {
-      ._title { 
-        max-width: 100%;
-        margin-bottom: 4em;
-      }
-      .cta {
-        gap: 1em;
-        display: flex;
-        button {padding: 15px 25px;}
-        .reserve {
-          gap: .1901em;
-          display: flex;
-          align-items: center;
-          font-weight: 400;
-          border-radius: 5px;
-          background: var(--violet);
-        }
-      }
-    }
-    .bottom {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      small {width: 400px;}
-      .icons {
-        gap: 3em;
-        display: flex;
-        align-items: center;
-        button {
-          gap: .5em;
-          padding: 0;
-          border: none;
-          display: flex;
-          align-items: center;
-        }
-      }
-      @media (max-width:1000px) {
-        gap: 2em;
-        flex-direction: column;
-        .icons {justify-content: space-between;}
-      }
-    }
-  }
-</style>
