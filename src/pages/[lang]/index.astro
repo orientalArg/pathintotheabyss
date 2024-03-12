@@ -1,0 +1,62 @@
+---
+import MainLayout from '../../layout/mainLayout.astro'
+import Header from '../../components/header.astro'
+import Hero from '../../components/hero.astro'
+import Links from '../../components/links.astro'
+import Reviews from '../../components/reviews.astro'
+import Newsletter from '../../components/newsletter.astro'
+import {ui} from '../../i18n/ui'
+import Menu from '../../components/menu.astro'
+import Gameplay from '../../components/gameplay.astro'
+import Specs from '../../components/specs.astro'
+import Abyss from '../../components/abyss.astro'
+
+export function getStaticPaths () {
+  return [
+    {params: {lang: 'en'}},
+    {params: {lang: 'es'}},
+  ];
+}
+ 
+const { lang } = Astro.params;
+
+const {btn, svg, menu, preorder, nav, gameplay, specs, newsletter, abyss, language} = ui[lang];
+
+const desc = gameplay.intro;
+const title = desc;
+const logo = "/logo.svg";
+---
+<MainLayout {title} {desc} {logo} >
+
+  <Menu {menu} {svg} >
+    <Newsletter {newsletter} />
+  </Menu>
+
+  <Hero {btn} {svg} {preorder} >
+    <Header {nav} {btn} {language} />
+  </Hero>
+
+  <Links />
+
+  <Gameplay {gameplay} />
+
+  <Reviews />
+
+  <Specs {specs} />
+
+  <Newsletter {newsletter} />
+
+  <Abyss {svg} {abyss}>
+    <Links />
+  </Abyss>
+
+  <script>
+    const wrapper = document.getElementById('menu_wrapper');
+    const btnOpen =  document.getElementById('menu_open');
+    const btnClose =  document.getElementById('menu_close');
+
+    btnOpen!.onclick = () => {return wrapper!.style.display = "block"}
+    btnClose!.onclick = () => {return wrapper!.style.display = "none"}
+  </script>
+
+</MainLayout>

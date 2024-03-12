@@ -2,7 +2,6 @@
 import { ViewTransitions } from "astro:transitions";
 const {title, desc, logo} = Astro.props;
 ---
-
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -10,7 +9,7 @@ const {title, desc, logo} = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-    <ViewTransitions />
+    <ViewTransitions/>
     <meta name="description" content={desc}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +19,6 @@ const {title, desc, logo} = Astro.props;
     <slot />
 	</body>
 </html>
-
 <style lang="scss" is:global>
   * {
     margin:0;
@@ -68,41 +66,48 @@ const {title, desc, logo} = Astro.props;
   button {
     font-size: 14px;
     font-weight: bold;
-    border-radius: 2em;
-    padding: 10px 2.5em;
-    background: none;
     text-transform: uppercase;
     font-family: "Inter", sans-serif;
+
+    gap: 1em;
+    display: flex;
+    align-items: center;
+
+    padding: 10px 2.5em;
+    
     color: var(--color-primary);
+    border-radius: 2em;
     border: var(--color-secondary) 1px solid;
-    border: 1px solid var(--transparent-grey);
+    background: none;
     &:hover {
       cursor: pointer;
       filter: brightness(1.1);
-      box-shadow: 0 0 10px 1px var(--violet);
     }
   }
   .title {
     margin: 0;
+    width: fit-content;
+
     font-weight: 500;
     font-style: normal;
-    width: fit-content;
+    color: transparent;
+
     text-transform: uppercase;
     font-family: "Karantina", system-ui;
+
     background: var(--gd-white);
     background-clip: text;
-    color: transparent;
   }
   a, span {
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
     text-transform: uppercase;
+  }
+  a {
     color: var(--color-primary);
     &:hover {
       cursor: pointer;
-      filter: brightness(1.1);
-      box-shadow: 0 0 10px 0 var(--violet);
     }
   }
   @keyframes slide_in_right {

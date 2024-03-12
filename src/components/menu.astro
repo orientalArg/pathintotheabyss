@@ -1,8 +1,7 @@
 ---
-import { translation } from "../i18n/utils";
 import links from "../utils/links.json"
 
-const {menu, svg} = translation();
+const {menu, svg} = Astro.props;
 const {nav, pages} = menu;
 
 const {gameplay, reviews, requirements, newsletter, abyss} = nav;
@@ -61,7 +60,7 @@ const {contact, world, devlog, art} = pages;
   padding-bottom:0;
   position: sticky;
   background: var(--black);
-  animation: slide_in_bottom ease-out 200ms;
+  animation: slide_in_bottom ease-out 300ms;
   .close {
     top: 1em;
     right: 4em;
@@ -116,6 +115,13 @@ const {contact, world, devlog, art} = pages;
   }
 }
 @media (max-width:1100px) {
+  .wrapper .content {
+    gap: 10vw;
+    justify-content: space-between;
+    .map img { width: 350px;}
+  }
+}
+@media (max-width:1000px) {
   .wrapper .content {
     gap: 10vw;
     justify-content: center;

@@ -1,5 +1,9 @@
 export const ui = {
   en: {
+    'language': {
+      'es': 'Spanish',
+      'en': 'English'
+    },
     'svg': {
       'name': '/images/EN/name.svg',
       'theabyss': '/images/EN/theabyss.svg',
@@ -104,7 +108,13 @@ export const ui = {
       },
     }
   },
+
+
   es: {
+    'language': {
+      'es': 'Español',
+      'en': 'Inglés'
+    },
     'svg': {
       'name': '/images/ES/name.svg',
       'theabyss': '/images/ES/theabyss.svg',

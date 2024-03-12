@@ -49,9 +49,6 @@ const {svg, btn, preorder} = Astro.props
         display: flex;
         button {padding: 15px 25px;}
         .reserve {
-          gap: .1901em;
-          display: flex;
-          align-items: center;
           font-weight: 400;
           border-radius: 5px;
           background: var(--violet);
@@ -67,19 +64,15 @@ const {svg, btn, preorder} = Astro.props
         gap: 3em;
         display: flex;
         align-items: center;
-        button {
-          gap: .5em;
-          padding: 0;
-          border: none;
-          display: flex;
-          align-items: center;
-        }
+        button {border: none;}
       }
-      @media (max-width:1000px) {
-        gap: 2em;
-        flex-direction: column;
-        .icons {justify-content: space-between;}
-      }
+    }
+  }
+  @media (max-width:1000px) {
+    .hero .bottom {
+      gap: 2em;
+      flex-direction: column;
+      .icons {justify-content: space-between;}
     }
   }
 </style>

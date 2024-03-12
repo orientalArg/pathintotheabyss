@@ -1,5 +1,5 @@
 ---
-const {nav, btn} = Astro.props;
+const {nav, btn, language} = Astro.props;
 
 const {art, contact, devLog} = nav;
 const {menu} = btn;
@@ -8,7 +8,7 @@ const {menu} = btn;
   <div class="logo">
     <img src="/logo.svg" alt="">
     <p>brainstorming</p>
-    <p>films</p>
+    <p>films</p>  
   </div>
   <div class="content">
     <nav class="nav">
@@ -22,7 +22,10 @@ const {menu} = btn;
       <button class="btn_lang" >
         <p>{btn.language}</p>
         <img src="/icons/globe.svg" alt="">
-        <div></div>
+        <div class="column">
+          <a href="/es/">ES</a>
+          <a href="/en/">EN</a>
+        </div>
       </button>
       <button class="btn_menu" id="menu_open">
         <span>{menu}</span>
@@ -60,22 +63,33 @@ const {menu} = btn;
       justify-content: space-between;
       .nav a { margin: 0 1em;}
       .buttons {
-        gap: 1em;
         display: flex;
         align-items: center;
-        button {
-          gap: 1em;
-          display: flex;
-        }
         .btn_lang {
-          padding: 0;
           border: none;
-          p { 
-            display: none;
-            animation: slide_in_right ease-out 300ms ;
+          padding: 1em;
+          position: relative;
+          &:hover {
+            .column {display: flex;}
           }
-          &:hover p {
-            display: block;
+          .column {
+            top: 100%;
+            right: 0;
+            position: absolute;
+
+            width: 100%;
+            padding: 1em 0;
+
+            display: none;
+            align-items: end;
+            flex-direction: column;
+            a {
+              width: 100%;
+              padding: 1em 0;
+              animation: slide_in_right 300ms ease-out;
+              border: 1px var(--color-secondary) solid;
+              &:hover {background: var(--violet);}
+            }
           }
         }
       }
@@ -84,7 +98,10 @@ const {menu} = btn;
       .content {
         padding-left: 0;
         nav { display: none;}
-        .buttons { margin-left: auto;}
+        .buttons {
+          margin-left: auto;
+          flex-direction: column-reverse;
+        }
       }
     }
   }
