@@ -17,14 +17,25 @@ export function getStaticPaths () {
     {params: {lang: 'es'}},
   ];
 }
- 
-const { lang } = Astro.params;
 
-const {btn, svg, menu, preorder, nav, gameplay, specs, newsletter, abyss, language} = ui[lang];
+const {lang} = Astro.params;
 
-const desc = gameplay.intro;
-const title = desc;
-const logo = "/logo.svg";
+function foo() {
+  //const b = Object.entries(ui).map((a) => a);
+
+  for (const [key, value] of Object.entries(ui)) {
+    if(key === lang)
+    return value;
+  }
+  return;
+}
+
+const {btn, svg, menu, preorder, nav, gameplay, specs, newsletter, abyss, language} = foo();
+
+// head meta tags
+let desc = gameplay.intro;
+let title = desc;
+let logo = "/logo.svg";
 ---
 <MainLayout {title} {desc} {logo} >
 
