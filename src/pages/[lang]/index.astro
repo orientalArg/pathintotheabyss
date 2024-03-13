@@ -1,15 +1,16 @@
 ---
+import {ui} from '../../i18n/ui'
 import MainLayout from '../../layout/mainLayout.astro'
+import Menu from '../../components/menu.astro'
 import Header from '../../components/header.astro'
 import Hero from '../../components/hero.astro'
 import Links from '../../components/links.astro'
 import Reviews from '../../components/reviews.astro'
 import Newsletter from '../../components/newsletter.astro'
-import {ui} from '../../i18n/ui'
-import Menu from '../../components/menu.astro'
 import Gameplay from '../../components/gameplay.astro'
 import Specs from '../../components/specs.astro'
 import Abyss from '../../components/abyss.astro'
+import Footer from '../../components/footer.astro'
 
 export function getStaticPaths () {
   return [
@@ -20,9 +21,7 @@ export function getStaticPaths () {
 
 const {lang} = Astro.params;
 
-function foo() {
-  //const b = Object.entries(ui).map((a) => a);
-
+function isLang() {
   for (const [key, value] of Object.entries(ui)) {
     if(key === lang)
     return value;
@@ -30,20 +29,20 @@ function foo() {
   return;
 }
 
-const {btn, svg, menu, preorder, nav, gameplay, specs, newsletter, abyss, language} = foo();
+const {game, language, btn, svg, menu, preorder, nav, gameplay, reviews, specs, newsletter, abyss, footer} = isLang();
 
 // head meta tags
 let desc = gameplay.intro;
-let title = desc;
+let title = game.name;
 let logo = "/logo.svg";
 ---
 <MainLayout {title} {desc} {logo} >
 
   <Menu {menu} {svg} >
     <Newsletter {newsletter} />
-  </Menu>
+  </Menu> 
 
-  <Hero {btn} {svg} {preorder} >
+  <Hero {btn} {svg} {preorder} > 
     <Header {nav} {btn} {language} />
   </Hero>
 
@@ -51,7 +50,7 @@ let logo = "/logo.svg";
 
   <Gameplay {gameplay} />
 
-  <Reviews />
+  <Reviews {reviews} />
 
   <Specs {specs} />
 
@@ -61,13 +60,20 @@ let logo = "/logo.svg";
     <Links />
   </Abyss>
 
+  <Footer {game} {footer} >
+    <Header {nav} {btn} {language} />
+  </Footer>
+
   <script>
     const wrapper = document.getElementById('menu_wrapper');
-    const btnOpen =  document.getElementById('menu_open');
+    const btnOpen =  document.querySelectorAll('#menu_open');
     const btnClose =  document.getElementById('menu_close');
 
-    btnOpen!.onclick = () => {return wrapper!.style.display = "block"}
     btnClose!.onclick = () => {return wrapper!.style.display = "none"}
+
+    for (let i = 0; i < btnOpen.length; i++) {
+      btnOpen[i].addEventListener('click',() => {wrapper!.style.display = "block";})
+    }
   </script>
 
 </MainLayout>

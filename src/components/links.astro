@@ -1,10 +1,13 @@
 ---
-import a from '../utils/links.json'
+import {data} from '../data/links'
+const {social} = data;
 ---
 <section>
-  <a href={a.discord}><img src="/icons/discord.svg" alt=""></a>
-  <a href={a.youtube}><img src="/icons/youtube.svg" alt=""></a>
-  <a href={a.twitter}><img src="/icons/twitter.svg" alt=""></a>
+  {
+    social.map((a) => <a href={a.url}>
+      <img src={a.image} alt="" srcset="" title={a.name}>
+    </a>)
+  }
 </section>
 <style lang="scss">
 section {

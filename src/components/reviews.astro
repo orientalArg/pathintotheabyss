@@ -1,48 +1,47 @@
 ---
-import { translation } from "../i18n/utils";
-
-const {reviews} = translation();
+const {reviews} = Astro.props;
 ---
-
 <section>
-  <img class="logo" src="/logo-cultura-gil.svg" alt="">
-  <q>
-    <h3 class="title">{reviews.first}</h3>
-  </q>
+  {reviews.map((a) => <div>
+    <img class="logo" src={a.logo} alt="">
+    <q><h3 class="title">{a.p}</h3></q>
+  </div>)}
 </section>
 <style lang="scss">
 section {
-  gap: 4em;
-  padding: 2em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  img {height: 73px;}
-  q {
-    max-width: 330px;
-    position: relative;
-    &::before, &::after{display: none;}
-    h3 {
+  div {
+    gap: 4em;
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {height: 73px;}
+    q {
+      max-width: 330px;
       position: relative;
-      font-weight: lighter;
-      text-transform: capitalize;
-      &::before{
-        top: -5%;
-        left: -5%;
-        content: '"';
-        font-size: 2em;
-        position: absolute;
-        font-family: Karantina;
-        color: var(--color-primary);
-      }
-      &::after{
-        top: -5%;
-        right: -5%;
-        content: '"';
-        font-size: 2em;
-        position: absolute;
-        font-family: Karantina;
-        color: var(--color-primary);
+      &::before, &::after{display: none;}
+      h3 {
+        position: relative;
+        font-weight: lighter;
+        text-transform: capitalize;
+        &::before{
+          top: -5%;
+          left: -5%;
+          content: '"';
+          font-size: 2em;
+          position: absolute;
+          font-family: Karantina;
+          color: var(--color-primary);
+        }
+        &::after{
+          top: -5%;
+          right: -5%;
+          content: '"';
+          font-size: 2em;
+          position: absolute;
+          font-family: Karantina;
+          color: var(--color-primary);
+        }
       }
     }
   }

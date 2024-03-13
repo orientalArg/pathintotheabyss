@@ -1,4 +1,7 @@
 ---
+import {data} from '../data/links'
+const {platforms} = data;
+
 const {svg, btn, preorder} = Astro.props
 ---
 <section class="hero">
@@ -9,7 +12,7 @@ const {svg, btn, preorder} = Astro.props
       <button>{btn.learn}</button>
       <button class="reserve">
         {btn.reserve}
-        <img src="/icons/steam.svg" alt="">
+        <img src="/buttons/steam.svg" alt="">
       </button>
     </div>
   </div>
@@ -17,13 +20,13 @@ const {svg, btn, preorder} = Astro.props
     <small>
       {preorder}
     </small>
-    <div class="icons">
-      <div>
-        <img src="/icons/microsoft.svg" alt="">
-        <img src="/icons/steam.svg" alt="">
-        <img src="/icons/epic.svg" alt="">
-      </div>
-      <button>
+    <div class="buttons">
+      {
+        platforms.map((a) => <a href={a.url}>
+          <img src={a.image} alt="" srcset="" title={a.name}>
+        </a>)
+      }
+      <button class="play">
         <p>{btn.play}</p>
         <img src="/icons/play.svg" alt="">
       </button>
@@ -32,13 +35,15 @@ const {svg, btn, preorder} = Astro.props
 </section>
 <style lang="scss">
   .hero {
-    gap: 7vw;
+    gap: 7em;
+    max-height: 850px;
+    
     display: flex;
     flex-direction: column;
+    
     background: url(/images/hero.png);
     background-position:center center;
     background-size: cover;
-    max-height: 850px;
     .middle {
       ._title { 
         max-width: 100%;
@@ -60,11 +65,15 @@ const {svg, btn, preorder} = Astro.props
       display: flex;
       justify-content: space-between;
       small {width: 400px;}
-      .icons {
-        gap: 3em;
+      .buttons {
+        gap: 1vw;
         display: flex;
-        align-items: center;
-        button {border: none;}
+        align-items: center;  
+        .play {
+          padding: 0;
+          border: none;
+          margin-left: 2vw;
+        }
       }
     }
   }
@@ -72,7 +81,9 @@ const {svg, btn, preorder} = Astro.props
     .hero .bottom {
       gap: 2em;
       flex-direction: column;
-      .icons {justify-content: space-between;}
+      .buttons .play{
+        margin-left: auto;
+      }
     }
   }
 </style>

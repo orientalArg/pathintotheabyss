@@ -1,37 +1,97 @@
-<footer>
-  <div class="content top">
-    <div class="logo">
-      <img src="/logo.svg" alt="">
-      <p class="title">brainstorming</p>
-      <p class="title">films</p>
+---
+import { data } from "../data/links";
+const {game, footer} = Astro.props;
+
+const date = new Date().getFullYear();
+---
+<section>
+    <footer>
+    <slot />
+    <div class="center">
+      <div class="links">
+        <h2 class="title">{game.name}</h2>
+        <div class="columns">
+          <ul>
+            <li><p>{footer.platforms}</p></li>
+            {data.consoles.map((a) => <li><a href={a.url}>{a.name}</a></li>)}
+          </ul>
+          <ul>
+            <li><p>{footer.partners}</p></li>
+            {data.partners.map((a) => <li><a href={a.url}>{a.name}</a></li>)}
+          </ul> 
+          <ul>
+            <li><p>{footer.developers}</p></li>
+            {data.developers.map((a) => <li><a href={a.url}>{a.name}</a></li>)}
+          </ul>
+        </div>
+      </div>
+      <div class="disclaimer">
+        <h2 class="title">{footer.disclaimer}</h2>
+        <div>
+          <img src="/public/icons/fear.svg" alt="">
+          <img src="/public/icons/violence.svg" alt="">
+          <img src="/public/icons/drugs.svg" alt="">
+          <img src="/public/icons/language.svg" alt="">
+        </div>
+      </div>
     </div>
-    <nav>
-      <a href="">B</a>
-      <a href=""></a>
-      <a href=""></a>
-    </nav>
-    <button>
-      <p>language</p>
-      <img src="/icons/globe-nut.svg" alt="">
-    </button>
-  </div>
-  <div class="content center">
-
-  </div>
-  <div class="content bottom">
-
-  </div>
-</footer>
+    <div class="bottom">
+      <div><small>©{date} {game.trademarks}</small></div>
+      <div><small><a href="https://github.com/orientalArg" class="title">made with passion by Joaquín Reynoso</a></small></div>
+    </div>
+  </footer>
+</section>
 
 <style lang="scss">
   footer {
-    .logo p {
-      color: var(--gradient-white);
-    }
-    .content {
+    min-height: 630px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .center {
       width: 100%;
       display: flex;
       justify-content: space-between;
+      h2 { margin-bottom: 5vh;}
+      .links .columns {
+        display: flex;
+        justify-content: space-between;
+        p {
+          margin-bottom: 2.5vh;
+          text-transform: uppercase;
+        }
+        a {
+          display: block;
+          max-width: 120px;
+          font-weight: 600;
+        }
+      }
+    }
+    .bottom div {
+      margin: 0 auto;
+      margin-top: 1em;
+      text-align: center;
+      color: var(--color-secondary);
+    }
+  }
+  @media (max-width:1000px) {
+    footer .center {
+      gap: 5vw;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+  @media (max-width:800px) {
+    footer .center .columns {
+      gap: 5vh;
+      align-items: center;
+      flex-direction: column;
+      ul {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        li a {max-width: 100vw;}
+      }
     }
   }
 </style>

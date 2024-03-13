@@ -1,6 +1,5 @@
 ---
 const {nav, btn, language} = Astro.props;
-
 const {art, contact, devLog} = nav;
 const {menu} = btn;
 ---
@@ -23,8 +22,8 @@ const {menu} = btn;
         <p>{btn.language}</p>
         <img src="/icons/globe.svg" alt="">
         <div class="column">
-          <a href="/es/">ES</a>
-          <a href="/en/">EN</a>
+          <a href="/es/" title={language.es} >ES</a>
+          <a href="/en/" title={language.en} >EN</a>
         </div>
       </button>
       <button class="btn_menu" id="menu_open">
@@ -58,7 +57,7 @@ const {menu} = btn;
     .content {
       width: 100%;
       display: flex;
-      padding-left: 4em;
+      padding-left: 4vw;
       align-items: center;
       justify-content: space-between;
       .nav a { margin: 0 1em;}
@@ -94,14 +93,14 @@ const {menu} = btn;
         }
       }
     }
-    @media (max-width:1000px) {
-      .content {
-        padding-left: 0;
-        nav { display: none;}
-        .buttons {
-          margin-left: auto;
-          flex-direction: column-reverse;
-        }
+  }
+  @media (max-width:800px) {
+    header .content {
+      padding-left: 0;
+      nav { display: none;}
+      .buttons {
+        margin-left: auto;
+        .btn_lang p { display: none;}
       }
     }
   }

@@ -1,5 +1,6 @@
 ---
-import links from "../utils/links.json"
+import {data} from '../data/links'
+const {social} = data;
 
 const {menu, svg} = Astro.props;
 const {nav, pages} = menu;
@@ -33,9 +34,11 @@ const {contact, world, devlog, art} = pages;
       <li class="contact">
         <p>{menu.follow}</p>
         <nav>
-          <a href={links.discord}><img src="/icons/discord.svg" alt=""></a>
-          <a href={links.youtube}><img src="/icons/youtube.svg" alt=""></a>
-          <a href={links.twitter}><img src="/icons/twitter.svg" alt=""></a>
+          {
+            social.map((a) => <a href={a.url}>
+              <img src={a.image} alt="" srcset="" title={a.name}>
+            </a>)
+          }
         </nav>
       </li>
     </ul>
@@ -57,19 +60,18 @@ const {contact, world, devlog, art} = pages;
   height: 100vh;
   display: none;
   align-items: end;
-  padding-bottom:0;
   position: sticky;
   background: var(--black);
   animation: slide_in_bottom ease-out 300ms;
   .close {
-    top: 1em;
-    right: 4em;
     z-index: 10;
-    position: absolute;
+    margin-top: 2vw;
+    margin-left: auto;
+    margin-right: 4vw;
   }
   .content {
     display: flex;
-    padding: 4em 4em 0;
+    padding: 4vw 4vw 0;
     position: relative;
     justify-content: space-between;
     .column {
@@ -77,24 +79,22 @@ const {contact, world, devlog, art} = pages;
       flex-direction: column;
       justify-content: space-between;
       .title {
-        margin-bottom: .5em;
+        margin-bottom: .5vw;
         text-transform: capitalize;
       }
       li {
-        list-style: none;
         width: fit-content;
-        margin-bottom: 1em;
+        margin-bottom: 2vh;
+        a {font-weight: 600;}
       }
       .contact {
-        margin-top:1em;
+        margin-top: 1em;
         nav {
-          gap: .5em;
+          gap: .5vw;
           display: flex;
           align-items: center;
-          margin-top:.5em;
-          img {
-            height:30px;
-          }
+          margin-top:.5vw;
+          img { height:30px;}
         }
       }
     }

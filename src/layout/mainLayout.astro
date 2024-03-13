@@ -24,7 +24,9 @@ const {title, desc, logo} = Astro.props;
     box-sizing: border-box;
   }
   :root, html {
-    --white:#fff;
+    background: black;
+    
+    --white:#e0e0e0;
     --black:#000;
     --grey:#d9d9d9;
     --darkgrey:#1E1E1E;
@@ -43,12 +45,7 @@ const {title, desc, logo} = Astro.props;
     
     --gd-white:linear-gradient(180deg,  #fff,#ffffff36);
     --gd-violet:linear-gradient(180deg,#313773,#31377300);
-    background: var(--black);
   }
-  h1 {font-size: 128px;}
-  h2 {font-size: 70px;}
-  h3 {font-size: 40px;}
-  h4 {font-size: 22px;}
   body {
     margin: 0 auto;
     max-width: 1500px;
@@ -59,6 +56,23 @@ const {title, desc, logo} = Astro.props;
     padding: 0 5vw 2em 5vw;
     @media (max-width: 1200px){
       padding: 0 1vw 2em 1vw;
+    }
+  }
+  ul li {list-style: none;}
+  h1 {font-size: 128px;}
+  h2 {font-size: 70px;}
+  h3 {font-size: 40px;}
+  h4 {font-size: 22px;}
+  a, span {
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  a {
+    color: var(--color-primary);
+    &:hover {
+      cursor: pointer;
     }
   }
   button {
@@ -95,18 +109,6 @@ const {title, desc, logo} = Astro.props;
 
     background: var(--gd-white);
     background-clip: text;
-  }
-  a, span {
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-  a {
-    color: var(--color-primary);
-    &:hover {
-      cursor: pointer;
-    }
   }
   @keyframes slide_in_right {
     from {

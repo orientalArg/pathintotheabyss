@@ -1,6 +1,7 @@
 ---
 const {specs} = Astro.props;
 const {title, system, gameplay, languages} = specs;
+const {voices, subtitles} = languages;
 ---
 
 <section class="specs" id="specs">
@@ -75,19 +76,16 @@ const {title, system, gameplay, languages} = specs;
       <div class="wrapper">
         <ul>
           <li>
-            <h3 class="title">{languages.voices.title}</h3>
+            <h3 class="title">{voices.title}</h3>
           </li>
           <div class="columns">
-            <li><h4 class="title">{languages.voices.first}</h4></li>
-            <li><h4 class="title">{languages.voices.second}</h4></li>
+            {voices.list.map((a) => <li><h4 class="title">{a.lang}</h4></li> )}
           </div>
           <li>
-            <h3 class="title">{languages.subtitles.title}</h3>
+            <h3 class="title">{subtitles.title}</h3>
           </li>
           <div class="columns">
-            <li><h4 class="title">{languages.subtitles.first}</h4></li>
-            <li><h4 class="title">{languages.subtitles.second}</h4></li>
-            <li><h4 class="title">{languages.subtitles.third}</h4></li>
+            {subtitles.list.map((a) => <li><h4 class="title">{a.lang}</h4></li> )}
           </div>
         </ul>
       </div>
@@ -108,11 +106,11 @@ const {title, system, gameplay, languages} = specs;
       text-transform: uppercase;
     }
     .grid {
-      gap: 5vw;
+      gap: 1vw;
       height: 100%;
       display: grid;
-      grid-template-rows: minmax(280px, min-content);
-      grid-template-columns: repeat(auto-fill, minmax(511px, 1fr));
+      grid-template-rows: auto, 300px;
+      grid-template-columns: repeat(2, minmax(50%, 511px));
       .card {
         width: 100%;
         height: 100%;
@@ -122,9 +120,10 @@ const {title, system, gameplay, languages} = specs;
           text-transform: uppercase;
         }
         .wrapper {
-          gap: 2em;
+          gap: 2vw;
+          width: 100%;
+          min-height: 300px;
           display: flex;
-          min-height: 280px;
           align-items: center;
           justify-content: center;
           border: 1px solid var(--transparent-grey);
@@ -132,7 +131,6 @@ const {title, system, gameplay, languages} = specs;
           ul {
             li {
               margin: 1em 0;
-              list-style: none;
               line-height: 22px;
               h4 {
                 text-align: left;
@@ -166,10 +164,11 @@ const {title, system, gameplay, languages} = specs;
         list-style: disc;
         color: var(--red);
       }
-      @media (max-width:1000px) {
-        display: flex;
-        flex-direction: column;
-      }
+    }
+  }
+  @media (max-width:900px) {
+    .specs .grid {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 </style>

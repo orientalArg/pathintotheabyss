@@ -2,36 +2,34 @@
 const {gameplay} = Astro.props;
 const {features, intro, title} = gameplay;
 ---
-
 <section class="gameplay" id="gameplay">
   <div class="content">
     <div class="_title">
       <h1 class="title">{title}</h1>
       <small>{intro}</small>
     </div>
-    <ul class="_features">
-      <li><p>{features.first}</p></li>
-      <li><p>{features.second}</p></li>
-      <li><p>{features.third}</p></li>
+    <ul class="list">
+      {features.map((a) => <li><p>{a.p}</p></li> )}
     </ul>
   </div>
   <div class="video">
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/97fyBOn6cRg?si=79oDGvVuEuZBXClY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/9s-5tR0fGfM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 </section>
 
 <style lang="scss">
   .gameplay {
-    gap: 5em;
+    gap: 10vw;
     height: 770px;
     display: flex;
     overflow: hidden;
+    padding-top: 2vw;
     justify-content: space-between;
     background: var(--transparent-violet);
     background-image: url(/images/tunnel.svg);
     background-size: cover;
     .content {
-      gap: 5em;
+      gap: 10vw;
       display: flex;
       max-width: 440px;
       flex-direction: column;
@@ -39,13 +37,15 @@ const {features, intro, title} = gameplay;
       ._title .title {
         text-transform: uppercase;
       }
-      ._features {
+      .list {
         padding: 0px;
-        color: var(--orange);
-        li p {
-          margin: 1em 0;
-          font-weight: 300;
+        li {
+          list-style: disc;
           color: var(--orange);
+          p {
+            margin: 1em 0;
+            font-weight: 300;
+          }
         }
       }
     }
@@ -80,10 +80,11 @@ const {features, intro, title} = gameplay;
       height: auto;
       flex-direction: column;
       .content {
-        max-width: 90%;
+        max-width: 80%;
         margin: 0 auto;
         text-align: center;
         h1 {margin: 0 auto;}
+        .list li {list-style: none;}
       }
       .video {
         margin: 0 auto;
