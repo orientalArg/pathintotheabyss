@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from "astro:transitions";
 const {title, desc, logo} = Astro.props;
 ---
 <html lang="en">
@@ -9,7 +8,6 @@ const {title, desc, logo} = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-    <ViewTransitions/>
     <meta name="description" content={desc}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
