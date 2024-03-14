@@ -27,18 +27,19 @@ const {svg, abyss, data} = Astro.props;
 </section>
 <script>
   const slider = document.getElementById("slider");
-  const w = document.body.clientWidth;
   
-  const btn_r = document.getElementById("btn_r").addEventListener('click', sr);
-  const btn_l = document.getElementById("btn_l").addEventListener('click', sl);
+  const r = document.getElementById("btn_r").addEventListener('click', sr);
+  const l = document.getElementById("btn_l").addEventListener('click', sl);
   
   function sl() {
+      const w = document.body.clientWidth;
       const scroll = slider.scrollLeft = -w;
       const btn_l = document.getElementById("btn_l").addEventListener('click', sl);
       
       return scroll;
   }
   function sr() {
+    const w = document.body.clientWidth;
     const scroll = slider.scrollLeft = w;
     const btn_r = document.getElementById("btn_r").addEventListener('click', sr);
 
