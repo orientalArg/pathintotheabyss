@@ -1,8 +1,6 @@
 ---
-import {data} from '../data/links'
+const {svg, btn, preorder, data} = Astro.props
 const {platforms} = data;
-
-const {svg, btn, preorder} = Astro.props
 ---
 <section class="hero">
   <slot />
@@ -33,7 +31,7 @@ const {svg, btn, preorder} = Astro.props
 </section>
 <style lang="scss">
   .hero {
-    gap: 7em;
+    gap: 6vw;
     max-height: 850px;
     
     display: flex;

@@ -1,5 +1,7 @@
 ---
 import {ui} from '../../i18n/ui'
+import {data} from '../../data/links.js'
+
 import MainLayout from '../../layout/mainLayout.astro'
 import Menu from '../../components/menu.astro'
 import Header from '../../components/header.astro'
@@ -38,15 +40,15 @@ let logo = "/logo.svg";
 ---
 <MainLayout {title} {desc} {logo} >
 
-  <Menu {menu} {svg} >
+  <Menu {menu} {svg} {data} >
     <Newsletter {newsletter} />
   </Menu> 
 
-  <Hero {btn} {svg} {preorder} > 
+  <Hero {btn} {svg} {preorder} {data} >
     <Header {nav} {btn} {language} />
   </Hero>
 
-  <Links />
+  <Links {data} />
 
   <Gameplay {gameplay} />
 
@@ -56,11 +58,11 @@ let logo = "/logo.svg";
 
   <Newsletter {newsletter} />
 
-  <Abyss {svg} {abyss}>
-    <Links />
+  <Abyss {svg} {abyss} {data} client:load>
+    <Links {data} />
   </Abyss>
 
-  <Footer {game} {footer} >
+  <Footer {game} {footer} {data} >
     <Header {nav} {btn} {language} />
   </Footer>
 
