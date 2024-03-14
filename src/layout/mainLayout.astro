@@ -63,6 +63,12 @@ const {title, desc, logo} = Astro.props;
   h2 {font-size: 70px;}
   h3 {font-size: 40px;}
   h4 {font-size: 22px;}
+  @media (max-width:800px) {
+    h1 {font-size: 25vw;}
+    h2 {font-size: 15vw;}
+    h3 {font-size: 10vw;}
+    h4 {font-size: 5vw;}
+  }
   a, span {
     font-size: 14px;
     font-weight: 500;

@@ -1,49 +1,54 @@
 ---
 const {reviews} = Astro.props;
 ---
-<section>
+<section class="reviews">
   {reviews.map((a) => <div>
     <img class="logo" src={a.logo} alt="">
     <q><h3 class="title">{a.p}</h3></q>
   </div>)}
 </section>
 <style lang="scss">
-section {
-  div {
-    gap: 4em;
-    padding: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    img {height: 73px;}
-    q {
-      max-width: 330px;
+.reviews div {
+  gap: 4em;
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    height: 73px;
+  }
+  q {
+    max-width: 330px;
+    position: relative;
+    &::before, &::after{display: none;}
+    h3 {
       position: relative;
-      &::before, &::after{display: none;}
-      h3 {
-        position: relative;
-        font-weight: lighter;
-        text-transform: capitalize;
-        &::before{
-          top: -5%;
-          left: -5%;
-          content: '"';
-          font-size: 2em;
-          position: absolute;
-          font-family: Karantina;
-          color: var(--color-primary);
-        }
-        &::after{
-          top: -5%;
-          right: -5%;
-          content: '"';
-          font-size: 2em;
-          position: absolute;
-          font-family: Karantina;
-          color: var(--color-primary);
-        }
+      font-weight: lighter;
+      text-transform: capitalize;
+      &::before{
+        top: -5%;
+        left: -5%;
+        content: '"';
+        font-size: 2em;
+        position: absolute;
+        font-family: Karantina;
+        color: var(--color-primary);
+      }
+      &::after{
+        top: -5%;
+        right: -5%;
+        content: '"';
+        font-size: 2em;
+        position: absolute;
+        font-family: Karantina;
+        color: var(--color-primary);
       }
     }
+  }
+}
+@media (max-width:800px) {
+  .reviews div {
+    flex-direction: column;
   }
 }
 </style>

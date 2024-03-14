@@ -17,9 +17,7 @@ const {svg, btn, preorder} = Astro.props
     </div>
   </div>
   <div class="bottom">
-    <small>
-      {preorder}
-    </small>
+    <small class="preorder">{preorder}</small>
     <div class="buttons">
       {
         platforms.map((a) => <a href={a.url}>
@@ -64,7 +62,7 @@ const {svg, btn, preorder} = Astro.props
       width: 100%;
       display: flex;
       justify-content: space-between;
-      small {width: 400px;}
+      .preorder {max-width: 400px;}
       .buttons {
         gap: 1vw;
         display: flex;
