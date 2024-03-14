@@ -84,5 +84,6 @@ export const data = {
     {url: "/images/stone_figure.png"},
     {url: "/images/hero.png"},
     {url: "/images/stone_figures.png"},
+    {url: "/images/stone_figures.png"},
   ]
 }
