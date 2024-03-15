@@ -1,35 +1,35 @@
 ---
 const {menu, svg, data} = Astro.props;
+const url = Astro.url.pathname;
 
 const {nav, pages} = menu;
 const {gameplay, reviews, requirements, newsletter, abyss} = nav;
 const {social} = data;
 
 const {contact, world, devlog, art} = pages;
+
 ---
 <section class="wrapper" id="menu_wrapper">
   <button class="close" id="menu_close">x</button>
   <div class="content">
     <ul class="column">
       <li><h2 class="title">{nav.title}</h2></li>
-      <li><a href="./#gameplay">{gameplay}</a></li>
-      <li><a href="./#reviews">{reviews}</a></li>
-      <li><a href="./#specs">{requirements}</a></li>
-      <li><a href="./#newsletter">{newsletter}</a></li>
-      <li><a href="./#abyss">{abyss}</a></li>
+      <li><a href={url + "#gameplay"}>{gameplay}</a></li>
+      <li><a href={url + "#reviews"}>{reviews}</a></li>
+      <li><a href={url + "#specs"}>{requirements}</a></li>
+      <li><a href={url + "#newsletter"}>{newsletter}</a></li>
+      <li><a href={url + "#abyss"}>{abyss}</a></li>
       <li class="contact">
         <p>{menu.reach}</p>
-        <nav>
-          <img src="/logo.svg" alt=""><a href="">brainstorm films</a>
-        </nav>
+        <nav><img src="/logo.svg" alt=""><a href="">brainstorm films</a></nav>
       </li>
     </ul>
     <ul class="column">
       <li><h2 class="title">{pages.title}</h2></li>
-      <li><a href="">{contact}</a></li>
-      <li><a href="">{world}</a></li>
-      <li><a href="">{devlog}</a></li>
-      <li><a href="">{art}</a></li>
+      <li><a href={url + "contact"}>{contact}</a></li>
+      <li><a href={url + "world"}>{world}</a></li>
+      <li><a href={url + "devlog"}>{devlog}</a></li>
+      <li><a href={url + "art"}>{art}</a></li>
       <li class="contact">
         <p>{menu.follow}</p>
         <nav>
@@ -79,7 +79,6 @@ const {contact, world, devlog, art} = pages;
       .column {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         .title {
           margin-bottom: .5vw;
           text-transform: capitalize;
@@ -90,7 +89,7 @@ const {contact, world, devlog, art} = pages;
           a {font-weight: 600;}
         }
         .contact {
-          margin-top: 1em;
+          margin-top: auto;
           nav {
             gap: .5vw;
             display: flex;
@@ -111,8 +110,8 @@ const {contact, world, devlog, art} = pages;
       width: 100%;
       position: absolute;
       &::after {
+        top: 0;
         left:50%;
-        top:25px;
         content:'';
         width: 70%;
         height: 1px;
@@ -143,14 +142,10 @@ const {contact, world, devlog, art} = pages;
     .wrapper {
       .content {
         gap: 3vw;
-        display: flex;
-        align-items: center;
         flex-direction: column;
         .column {
           align-items: center;
-          .contact nav {
-            justify-content: center;
-          }
+          .contact nav { justify-content: center;}
         }
       }
       .newsletter {
