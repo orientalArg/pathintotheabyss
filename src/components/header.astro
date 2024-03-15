@@ -1,4 +1,5 @@
 ---
+const url = Astro.url.pathname;
 const {nav, btn, language} = Astro.props;
 const {art, contact, devLog} = nav;
 const {menu} = btn;
@@ -11,11 +12,11 @@ const {menu} = btn;
   </div>
   <div class="content">
     <nav class="nav">
-      <a href="">{devLog}</a>
+      <a href={url + "devlog"} >{devLog}</a>
       <span>/</span>
-      <a href="">{art}</a>
+      <a href={url + "art"} >{art}</a>
       <span>/</span>
-      <a href="">{contact}</a>
+      <a href={url + "contact"} >{contact}</a>
     </nav>
     <div class="buttons">
       <button class="btn_lang" >
