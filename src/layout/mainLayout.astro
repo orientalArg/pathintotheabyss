@@ -48,7 +48,6 @@ const {title, desc, logo} = Astro.props;
   }
   body {
     margin: 0 auto;
-    max-width: 1500px;
     color: var(--color-primary);
     font-family: "Inter", sans-serif;
   }
@@ -56,6 +55,9 @@ const {title, desc, logo} = Astro.props;
     padding: 0 5vw 2em 5vw;
     @media (max-width: 1200px){
       padding: 0 1vw 2em 1vw;
+    }
+    @media (min-width: 1440px){
+      padding: 0 15vw 5em 15vw;
     }
   }
   ul li {list-style: none;}
