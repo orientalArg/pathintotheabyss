@@ -123,10 +123,12 @@ const {contact, world, devlog, art} = pages;
       }
     }
   }
-  @media (max-width:1100px) {.wrapper .content .map img {width: 350px;}}
+  @media (max-width:1100px) {
+    .wrapper .content .map img {width: 350px;}
+  }
   @media (max-width:1000px) {
     .wrapper .content {
-      padding: 4vw;
+      gap: 20vw;
       justify-content: center;
       .map { display: none;}
     }
@@ -134,6 +136,7 @@ const {contact, world, devlog, art} = pages;
   @media (max-width:600px) {
     .wrapper {
       .content {
+        gap: 5vw;
         display: flex;
         align-items: center;
         flex-direction: column;
