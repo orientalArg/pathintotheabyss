@@ -1,7 +1,7 @@
 ---
 const {reviews} = Astro.props;
 ---
-<section class="reviews">
+<section class="reviews" id="reviews" >
   {reviews.map((a) => <div>
     <img class="logo" src={a.logo} alt="">
     <q><h3 class="title">{a.p}</h3></q>
