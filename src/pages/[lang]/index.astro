@@ -54,7 +54,11 @@ let logo = "/images/logo.svg";
 ---
 <MainLayout {title} {desc} {logo} >
 
+<<<<<<< HEAD
   <Menu {menu} {image} {data} ><Newsletter {newsletter} /></Menu> 
+=======
+  <Menu {menu} {image} {data} ><Newsletter {newsletter} client:idle /></Menu> 
+>>>>>>> e4264c1fef3fd393eb312dff6f394ba505e42613
 
   <Hero {btn} {image} {preorder} {data} ><Header {nav} {btn} {language} /></Hero>
 
@@ -66,11 +70,19 @@ let logo = "/images/logo.svg";
 
   <Specs {specs} />
 
+<<<<<<< HEAD
   <div id="newsletter"> <Newsletter {newsletter} /></div>
 
   <Abyss {image} {abyss} {data} > <Links {data} /> </Abyss>
 
   <Footer {game} {footer} {data} ><Header {nav} {btn} {language} /></Footer>
+=======
+  <div id="newsletter"><Newsletter {newsletter} /></div>
+
+  <Abyss {image} {abyss} {data} > <Links {data} client:idle /> </Abyss>
+
+  <Footer {game} {footer} {data} ><Header {nav} {btn} {language} client:idle /></Footer>
+>>>>>>> e4264c1fef3fd393eb312dff6f394ba505e42613
 
   <script>
     const wrapper = document.getElementById('menu_wrapper');
