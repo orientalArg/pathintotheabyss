@@ -54,9 +54,13 @@ let logo = "/images/logo.svg";
 ---
 <MainLayout {title} {desc} {logo} >
 
-  <Menu {menu} {image} {data} ><Newsletter {newsletter} /></Menu> 
+  <Menu {menu} {image} {data} >
+    <Newsletter {newsletter} />
+  </Menu> 
 
-  <Hero {btn} {image} {preorder} {data} ><Header {nav} {btn} {language} /></Hero>
+  <Hero {btn} {image} {preorder} {data} >
+    <Header {nav} {btn} {language} />
+  </Hero>
 
   <Links {data} />
 
@@ -66,11 +70,17 @@ let logo = "/images/logo.svg";
 
   <Specs {specs} />
 
-  <div id="newsletter"> <Newsletter {newsletter} /></div>
+  <div id="newsletter">
+    <Newsletter {newsletter} />
+  </div>
 
-  <Abyss {image} {abyss} {data} > <Links {data} /> </Abyss>
+  <Abyss {image} {abyss} {data} >
+    <Links {data} />
+  </Abyss>
 
-  <Footer {game} {footer} {data} ><Header {nav} {btn} {language} /></Footer>
+  <Footer {game} {footer} {data} >
+    <Header {nav} {btn} {language} />
+  </Footer>
 
   <script>
     const wrapper = document.getElementById('menu_wrapper');
@@ -83,4 +93,5 @@ let logo = "/images/logo.svg";
       btnOpen[i].addEventListener('click',() => {wrapper!.style.display = "block";})
     }
   </script>
+  
 </MainLayout>
