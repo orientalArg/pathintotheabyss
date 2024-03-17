@@ -62,26 +62,18 @@ section {
         height: 100%;
         padding: 0 1vw;
         position: relative;
+        text-align: center;
         font-weight: lighter;
         text-transform: capitalize;
-        &::before{
-          top: -5%;
-          left: -5%;
+        &::before, &::after {
           content: '"';
-          font-size: 2em;
+          font-size: 3em;
           position: absolute;
           font-family: Karantina;
           color: var(--color-primary);
         }
-        &::after{
-          top: -5%;
-          right: -5%;
-          content: '"';
-          font-size: 2em;
-          position: absolute;
-          font-family: Karantina;
-          color: var(--color-primary);
-        }
+        &::before { top: -5%;left: -5%;}
+        &::after { top: -5%;right: -5%;}
       }
     }
     .active_review { display: flex;}
@@ -96,14 +88,14 @@ section {
       height: 5px;
       width: 50px;
       border: none;
-      border-radius: 3px;
+      border-radius: 0;
       background: var(--color-secondary);
     }
     .active_nav { background: var(--color-primary);}
   }
 }
 @media (max-width:900px) {
-  .reviews .review {
+  section .reviews .review {
     padding: 10vw 5vw;
     flex-direction: column;
   }
