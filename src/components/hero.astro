@@ -47,13 +47,13 @@ const {platforms} = data;
         gap: 1em;
         display: flex;
         .learn {
-          padding: 15px 25px;
+          padding: 1.2vw 2vw;
           &:hover {background: none;}
         }
         .reserve {
           font-weight: 400;
           border-radius: 5px;
-          padding: 15px 25px;
+          padding: 1.2vw 2vw;
           background: var(--violet);
         }
       }
@@ -77,11 +77,14 @@ const {platforms} = data;
     }
   }
   @media (max-width:1000px) {
-    .hero .bottom {
-      gap: 2em;
-      flex-direction: column;
-      .buttons .play{
-        margin-left: auto;
+    .hero {
+      padding: 15px 25px;
+      .middle buttons button {
+      }
+      .bottom {
+        gap: 2em;
+        flex-direction: column;
+        .buttons .play {margin-left: auto;}
       }
     }
   }
