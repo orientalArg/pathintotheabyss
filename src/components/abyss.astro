@@ -1,22 +1,25 @@
 ---
-const {svg, abyss, data} = Astro.props;
+const {image, abyss, data} = Astro.props;
 ---
 <section class="abyss" id="abyss">
-  
   <div class="_title">
-    <img src={svg.theabyss} alt="a">
+    <img src={image.theabyss} alt="a">
   </div>
-  
   <div class="content">
     <div class="story">
       {abyss.story.map((a) => <p>{a.p}</p>)}
     </div>
-    <div class="collection">
+    <div class="grid">
+      <p hidden> visible from 800px width </p>
+      {data.slides.slice(0, 4).map((a) => <img src={a.url} alt="" />)}
+    </div>
+    <div class="slider_wrapper">
+      <p hidden> visible up to 800px width </p>
       <div class="buttons">
-        <button id="btn_l"><img src="/icons/play.svg" alt="" srcset=""></button>
-        <button id="btn_r"><img src="/icons/play.svg" alt="" srcset=""></button>
+        <button btn-prev ><img src="/icons/prev.svg" alt="" srcset=""></button>
+        <button btn-next ><img src="/icons/next.svg" alt="" srcset=""></button>
       </div>
-      <div class="grid" id="slider">
+      <div class="slider" id="slider">
         {data.slides.map((a) => <img class="slide" src={a.url} alt="" />)}
       </div>
     </div>
@@ -26,27 +29,23 @@ const {svg, abyss, data} = Astro.props;
   </div>
 </section>
 <script>
-  const slider = document.getElementById("slider");
-  
-  const r = document.getElementById("btn_r").addEventListener('click', sr);
-  const l = document.getElementById("btn_l").addEventListener('click', sl);
-  
-  function sl() {
-      const w = document.body.clientWidth;
-      const scroll = slider.scrollLeft = -w;
-      const btn_l = document.getElementById("btn_l").addEventListener('click', sl);
-      
-      return scroll;
-  }
-  function sr() {
-    const w = document.body.clientWidth;
-    const scroll = slider.scrollLeft = w;
-    const btn_r = document.getElementById("btn_r").addEventListener('click', sr);
+  let current = 0;
+  let slides = document.getElementsByClassName("slide");
+  slides[0].classList.add("active")
 
-    return scroll;
+  document.querySelector('[btn-prev]').addEventListener("click", () => changeSlide(current + 1));
+  document.querySelector('[btn-next]').addEventListener("click", () => changeSlide(current - 1));
+
+  function changeSlide(n) {
+    if (n >= slides.length) {n = 0}
+    if (n < 0) {n = slides.length - 1}
+
+    slides[current].classList.toggle("active")
+    slides[n].classList.toggle("active")
+
+    current = n;
   }
 </script>
-
 <style lang="scss">
 .abyss {
   height: auto;
@@ -70,22 +69,46 @@ const {svg, abyss, data} = Astro.props;
         margin: 1em 0;
       }
     }
-    .collection {
+    .slider_wrapper {
+      width: 95vw;
+      display: none;
+      overflow: hidden;
+      position: relative;
       .buttons {
-        display: none;
-      }
-      .grid {
-        gap: 3px;
-        width: fit-content;
-        display: grid;
-        grid-template-rows: 2, 235px;
-        grid-template-columns: repeat(2, minmax(353px, 1fr));
-        .slide {
-          width: 100%;
-          height: 100%;
-          max-width: 353px;
-          max-height:  235px;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        position: absolute;
+        justify-content: space-between;
+        button {
+          padding: 0;
+          border: none;
+          img { max-height: 45px;}
         }
+      }
+      .slider {
+        width: 100%;
+        display: flex;
+        .slide {
+          display: none;
+          min-width: 100%;
+          max-height: 499px;
+        }
+        .active {display: block;}
+      }
+    }
+    .grid {
+      gap: 3px;
+      display: grid;
+      width: fit-content;
+      grid-template-rows: 2, 245px;
+      grid-template-columns: repeat(2, minmax(353px, 1fr));
+      img {
+        width: 100%;
+        height: 100%;
+        max-width: 353px;
+        max-height: 245px;
       }
     }
   }
@@ -114,31 +137,16 @@ const {svg, abyss, data} = Astro.props;
     }
   }
 }
-@media (max-width:700px) {
+@media (max-width:800px) {
   .abyss .content {
+    flex-direction: column;
     .story {
     }
-    .collection {
-      position: relative;
-      .buttons {
-        left: 0;
-        top: 50%;
-        display: flex;
-        width: 100%;
-        position: absolute;
-        justify-content: space-between;
-      }
-      .grid {
-        //grid-template-columns: repeat(1, minmax(250px, 1fr));
-        gap: 1em;
-        width: 95vw;
-        display: flex;
-        overflow-x: hidden;
-        .slide {
-          min-height: 350px;
-          min-width: 95vw;
-        }
-      }
+    .grid {
+      display: none;
+    }
+    .slider_wrapper {
+      display: flex;
     }
   }
 }

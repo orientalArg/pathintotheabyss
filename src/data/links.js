@@ -81,9 +81,13 @@ export const data = {
     },
   ],
   slides : [
-    {url: "/images/stone_figure.png"},
-    {url: "/images/hero.png"},
-    {url: "/images/stone_figures.png"},
-    {url: "/images/stone_figures.png"},
+    {url: "/slides/obelisk.png"},
+    {url: "/slides/city_red.png"},
+    {url: "/slides/national_library.png"},
+    {url: "/slides/train_outside.png"},
+    {url: "/slides/train_subterrain.png"},
+    {url: "/slides/character.png"},
+    {url: "/slides/forest.png"},
+    {url: "/slides/stone_figure.png"},
   ]
 }

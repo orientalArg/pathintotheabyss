@@ -1,11 +1,11 @@
 ---
-const {svg, btn, preorder, data} = Astro.props
+const {image, btn, preorder, data} = Astro.props
 const {platforms} = data;
 ---
 <section class="hero">
   <slot />
   <div class="middle">
-    <img class="_title" src={svg.name} alt="">
+    <img class="_title" src={image.name} alt="">
     <div class="cta">
       <button>{btn.learn}</button>
       <button class="reserve">
@@ -32,9 +32,10 @@ const {platforms} = data;
 <style lang="scss">
   .hero {
     gap: 6vw;
-    max-height: 850px;
+    min-height: 850px;
     
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     
     background: url(/images/hero.png);

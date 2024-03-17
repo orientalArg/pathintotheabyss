@@ -9,7 +9,7 @@ export const ui = {
       es: 'Spanish',
       en: 'English'
     },
-    svg: {
+    image: {
       name: '/images/EN/name.svg',
       theabyss: '/images/EN/theabyss.svg',
       map: '/images/EN/map.svg',
@@ -59,7 +59,7 @@ export const ui = {
     reviews: [
       {
         p:"To Live Is to Suffer, to Survive Is to Find Some Meaning in the Suffering",
-        logo:"/logo_cultura_gil.svg"
+        logo:"/images/logo_cultura_gil.svg"
       },
     ],
     specs: {
@@ -135,7 +135,7 @@ export const ui = {
       es: 'Español',
       en: 'Inglés'
     },
-    svg: {
+    image: {
       name: '/images/ES/name.svg',
       theabyss: '/images/ES/theabyss.svg',
       map: '/images/ES/map.svg',
@@ -185,7 +185,7 @@ export const ui = {
     reviews: [
       {
         p:"Vivir es sufrir, sobrevivir es encontrar algún sentido al sufrimiento",
-        logo:"/logo_cultura_gil.svg"
+        logo:"/images/logo_cultura_gil.svg"
       },
     ],
     specs: {

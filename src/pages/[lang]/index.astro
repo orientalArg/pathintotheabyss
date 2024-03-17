@@ -35,7 +35,7 @@ const {
   game,
   language,
   btn,
-  svg,
+  image,
   menu,
   preorder,
   nav,
@@ -50,17 +50,13 @@ const {
 // head meta tags
 let desc = gameplay.intro;
 let title = game.name;
-let logo = "/logo.svg";
+let logo = "/images/logo.svg";
 ---
 <MainLayout {title} {desc} {logo} >
 
-  <Menu {menu} {svg} {data} >
-    <Newsletter {newsletter} />
-  </Menu> 
+  <Menu {menu} {image} {data} ><Newsletter {newsletter} client:idle /></Menu> 
 
-  <Hero {btn} {svg} {preorder} {data} >
-    <Header {nav} {btn} {language} />
-  </Hero>
+  <Hero {btn} {image} {preorder} {data} ><Header {nav} {btn} {language} /></Hero>
 
   <Links {data} />
 
@@ -72,13 +68,9 @@ let logo = "/logo.svg";
 
   <div id="newsletter"><Newsletter {newsletter} /></div>
 
-  <Abyss {svg} {abyss} {data} >
-    <Links {data} />
-  </Abyss>
+  <Abyss {image} {abyss} {data} > <Links {data} client:idle /> </Abyss>
 
-  <Footer {game} {footer} {data} >
-    <Header {nav} {btn} {language} />
-  </Footer>
+  <Footer {game} {footer} {data} ><Header {nav} {btn} {language} client:idle /></Footer>
 
   <script>
     const wrapper = document.getElementById('menu_wrapper');
@@ -91,5 +83,4 @@ let logo = "/logo.svg";
       btnOpen[i].addEventListener('click',() => {wrapper!.style.display = "block";})
     }
   </script>
-
 </MainLayout>

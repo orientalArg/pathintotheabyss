@@ -1,6 +1,6 @@
 ---
 const url = Astro.url.pathname;
-const {menu, svg, data} = Astro.props;
+const {menu, image, data} = Astro.props;
 
 const {nav, pages} = menu;
 const {gameplay, reviews, requirements, newsletter, abyss} = nav;
@@ -42,7 +42,7 @@ const {contact, world, devlog, art} = pages;
       </li>
     </ul>
     <div class="map">
-      <img src={svg.map} alt="">
+      <img src={image.map} alt="">
     </div>
   </div>
   <div class="newsletter">
