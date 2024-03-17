@@ -124,24 +124,18 @@ const {image, abyss, data} = Astro.props;
   }
 }
 @media (max-width:1200px) {
-  .abyss .content .grid {
-    grid-template-columns: repeat(2, 300px);
-  }
+  .abyss .content .grid { grid-template-columns: repeat(2, 300px);}
 }
 @media (max-width:1100px) {
   .abyss .content {
     text-align: center;
     align-items: center;
     flex-direction: column;
-    .story {
-      max-width: 75%;
-    }
-    .grid {
-      grid-template-columns: repeat(2, minmax(250px, 1fr));
-    }
+    .story { max-width: 700px;}
+    .grid { grid-template-columns: repeat(2, minmax(250px, 1fr));}
   }
 }
-@media (max-width:800px) {
+@media (max-width:850px) {
   .abyss .content {
     flex-direction: column;
     .story {
