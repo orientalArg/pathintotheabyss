@@ -6,12 +6,9 @@ const {platforms} = data;
   <slot />
   <div class="middle">
     <img class="_title" src={image.name} alt="">
-    <div class="cta">
-      <button>{btn.learn}</button>
-      <button class="reserve">
-        {btn.reserve}
-        <img src="/icons/steam.svg" alt="">
-      </button>
+    <div class="buttons">
+      <button class="learn" >{btn.learn}</button>
+      <button class="reserve" >{btn.reserve}<img src="/icons/steam.svg" alt=""></button>
     </div>
   </div>
   <div class="bottom">
@@ -46,13 +43,17 @@ const {platforms} = data;
         max-width: 100%;
         margin-bottom: 4em;
       }
-      .cta {
+      .buttons {
         gap: 1em;
         display: flex;
-        button {padding: 15px 25px;}
+        .learn {
+          padding: 15px 25px;
+          &:hover {background: none;}
+        }
         .reserve {
           font-weight: 400;
           border-radius: 5px;
+          padding: 15px 25px;
           background: var(--violet);
         }
       }
@@ -70,6 +71,7 @@ const {platforms} = data;
           padding: 0;
           border: none;
           margin-left: 2vw;
+          &:hover {background: none;}
         }
       }
     }

@@ -69,9 +69,7 @@ const {menu} = btn;
           border: none;
           padding: 1em;
           position: relative;
-          &:hover {
-            .column {display: flex;}
-          }
+          &:hover .column {display: flex;}
           .column {
             top: 100%;
             right: 0;
@@ -86,16 +84,17 @@ const {menu} = btn;
             a {
               width: 100%;
               padding: 1em 0;
+              background: var(--black);
               animation: slide_in_right 300ms ease-out;
               border: 1px var(--color-secondary) solid;
-              &:hover {background: var(--violet);}
+              &:hover {color:var(--color-primary);background: var(--violet);}
             }
           }
         }
       }
     }
   }
-  @media (max-width:800px) {
+  @media (max-width:900px) {
     header .content {
       padding-left: 0;
       nav { display: none;}

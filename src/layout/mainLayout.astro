@@ -97,7 +97,11 @@ const {title, desc, logo, OGimage} = Astro.props;
   a {
     color: var(--color-primary);
     &:hover {
-      cursor: pointer;
+      color: var(--red);cursor: pointer;
+    }
+    &:hover img {
+      opacity: .75;
+      transform: scale(1.2);
     }
   }
   button {
@@ -119,6 +123,7 @@ const {title, desc, logo, OGimage} = Astro.props;
     &:hover {
       cursor: pointer;
       filter: brightness(1.1);
+      background: var(--violet);
     }
   }
   .title {
