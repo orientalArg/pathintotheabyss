@@ -10,6 +10,7 @@ export const ui = {
       en: 'English'
     },
     image: {
+      og:'/images/EN/OG.png',
       name: '/images/EN/name.svg',
       theabyss: '/images/EN/theabyss.svg',
       map: '/images/EN/map.svg',
@@ -136,6 +137,7 @@ export const ui = {
       en: 'Inglés'
     },
     image: {
+      og:'/images/ES/OG.png',
       name: '/images/ES/name.svg',
       theabyss: '/images/ES/theabyss.svg',
       map: '/images/ES/map.svg',
