@@ -1,0 +1,21 @@
+---
+const {data} = Astro.props;
+const {social} = data;
+---
+<section>
+  {
+    social.map((a) => <a href={a.url}>
+      <img src={a.image} alt="" srcset="" title={a.name}>
+    </a>)
+  }
+</section>
+<style lang="scss">
+section {
+  gap: 1em;
+  width: 100%;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  background: var(--black);
+}
+</style>
