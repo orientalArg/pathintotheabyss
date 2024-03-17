@@ -1,43 +1,66 @@
 ---
 const {reviews} = Astro.props;
 ---
-<section class="reviews" id="reviews" >
-  {reviews.map((a) => <div class="review" id="review"><img class="logo" src={a.logo} alt=""><q><h3 class="title">{a.p}</h3></q></div>)}
+<section id="reviews" >
+  <div class="reviews">
+    {reviews.map((a) => 
+    <div class="review" id="review">
+      <img class="logo" src={a.logo} alt="">
+      <h3 class="quote title">{a.p}</h3>
+    </div>
+    )}
+  </div>
+
+  <div class="buttons_nav">
+    {reviews.map((a) => <button class="btn_nav"></button>)}
+  </div>
+
 </section>
 
 <script>
-let current = 0;
+  let navButtons = document.getElementsByClassName("btn_nav");
+  navButtons[0].classList.add("active_nav");
+
+  let current = 0;
   let reviews = document.getElementsByClassName("review");
-  reviews[0].classList.add("active")
+  reviews[0].classList.add("active_review")
 
   function changeReview(n) {
     if (n >= reviews.length) {n = 0}
     if (n < 0) {n = reviews.length - 1}
 
-    reviews[current].classList.toggle("active")
-    reviews[n].classList.toggle("active")
+    reviews[current].classList.toggle("active_review")
+    navButtons[current].classList.toggle("active_nav")
+
+    reviews[n].classList.toggle("active_review")
+    navButtons[n].classList.toggle("active_nav")
 
     current = n;
   }
+
+  document.querySelectorAll('.btn_nav').forEach((nav, index) => {
+    nav.addEventListener('click', () => {
+      if (current !== index) {
+        changeReview(index);
+      }
+    })
+  })
 </script>
 
 <style lang="scss">
-.reviews {
-  
-  .review {
-    gap: 4em;
-    padding-top: 2vw;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    img {
-      height: 73px;
-    }
-    q {
-      max-width: 330px;
-      position: relative;
-      &::before, &::after{display: none;}
-      h3 {
+section {
+  .reviews {
+    .review {
+      gap: 4vw;
+      display: none;
+      padding: 0 15vw;
+      min-height: 250px;
+      align-items: center;
+      justify-content: center;
+      .logo { max-height: 100px;}
+      .quote {
+        height: 100%;
+        padding: 0 1vw;
         position: relative;
         font-weight: lighter;
         text-transform: capitalize;
@@ -61,13 +84,27 @@ let current = 0;
         }
       }
     }
+    .active_review { display: flex;}
   }
-  .active {
+  .buttons_nav {
+    gap: 1vw;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    .btn_nav {
+      padding: 0;
+      height: 5px;
+      width: 50px;
+      border: none;
+      border-radius: 3px;
+      background: var(--color-secondary);
+    }
+    .active_nav { background: var(--color-primary);}
   }
 }
-@media (max-width:800px) {
-  .reviews div {
+@media (max-width:900px) {
+  .reviews .review {
+    padding: 10vw 5vw;
     flex-direction: column;
   }
 }

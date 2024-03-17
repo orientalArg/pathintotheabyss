@@ -15,7 +15,6 @@ export const ui = {
       theabyss: '/images/EN/theabyss.svg',
       map: '/images/EN/map.svg',
     },
-
     menu:{
       reach:'BUSINESS CONTACT',
       follow:'FOLLOW US ON SOCIAL MEDIA',
@@ -60,6 +59,14 @@ export const ui = {
     reviews: [
       {
         p:"To Live Is to Suffer, to Survive Is to Find Some Meaning in the Suffering",
+        logo:"/images/logo_cultura_gil.svg"
+      },
+      {
+        p:"Victory at all costs, victory in spite of all terror, victory however long and hard the road may be; for without victory, there is no survival.",
+        logo:"/images/logo_cultura_gil.svg"
+      },
+      {
+        p:"The flesh of thy saints unto the beasts of the earth. How long, Lord? wilt thou be angry for ever? shall thy jealousy burn like fire?",
         logo:"/images/logo_cultura_gil.svg"
       },
     ],
@@ -142,7 +149,6 @@ export const ui = {
       theabyss: '/images/ES/theabyss.svg',
       map: '/images/ES/map.svg',
     },
-
     menu:{
       reach:'CONTACTO DE NEGOCIO',
       follow:'SÍGUENOS EN LAS REDES SOCIALES',
@@ -187,6 +193,14 @@ export const ui = {
     reviews: [
       {
         p:"Vivir es sufrir, sobrevivir es encontrar algún sentido al sufrimiento",
+        logo:"/images/logo_cultura_gil.svg"
+      },
+      {
+        p:"Victoria a toda costa, victoria a pesar de todo terror, victoria por muy largo y duro que sea el camino; porque sin victoria no hay supervivencia.",
+        logo:"/images/logo_cultura_gil.svg"
+      },
+      {
+        p:"La carne de tus santos a las bestias de la tierra. ¿Hasta cuándo, Señor? ¿Estarás enojado para siempre? ¿Arderán como fuego tus celos?",
         logo:"/images/logo_cultura_gil.svg"
       },
     ],
