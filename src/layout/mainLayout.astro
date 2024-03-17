@@ -38,6 +38,8 @@ const {title, desc, logo, OGimage} = Astro.props;
     margin:0;
     padding:0;
     box-sizing: border-box;
+    scrollbar-width: 5px;
+    scrollbar-color: var(--red) var(--black);
   }
   :root, html {
     background: black;
@@ -73,7 +75,10 @@ const {title, desc, logo, OGimage} = Astro.props;
       padding: 0 2vw 2em 2vw;
     }
     @media (min-width: 1441px){
-      max-width: 1440px;
+      padding: 0 15vw 2em 15vw;
+    }
+    @media (min-width: 1600px){
+      max-width: 1600px;
       margin: 0 auto;
     }
   }
