@@ -1,21 +1,29 @@
 ---
-const {image, btn, preorder, data} = Astro.props
-const {platforms} = data;
+const {game, btn, preorder, data} = Astro.props
+const {platforms, slides} = data;
 ---
 <section class="hero">
+
   <slot />
+
+  <div class="slider">
+    {slides.map(a => <img class="bg_slide" src={a.url} alt="a"/>)}
+  </div>
+
   <div class="middle">
-    <img class="_title" src={image.name} alt="">
+    <h1 class="stroke _title">{game.name}</h1>
     <div class="buttons">
       <button class="learn" >{btn.learn}</button>
       <button class="reserve" >{btn.reserve}<img src="/icons/steam.svg" alt=""></button>
     </div>
   </div>
+
   <div class="bottom">
     <small class="preorder">{preorder}</small>
     <div class="buttons">
       {
-        platforms.map((a) => <a href={a.url}>
+        platforms.map((a) =>
+        <a href={a.url}>
           <img src={a.image} alt="" srcset="" title={a.name}>
         </a>)
       }
@@ -25,23 +33,56 @@ const {platforms} = data;
       </button>
     </div>
   </div>
+
 </section>
+
+<script>
+  let current = 0;
+  let slides = document.getElementsByClassName("bg_slide");
+  slides[6].classList.add("active")
+  
+  function changeSlide(n) {
+    if (n >= slides.length) {n = 0}
+    if (n < 0) {n = slides.length - 1}
+
+    slides[current].classList.toggle("active")
+    slides[n].classList.toggle("active")
+
+    current = n;
+    
+  }
+</script>
+
 <style lang="scss">
   .hero {
     gap: 6vw;
     min-height: 90vh;
+    position: relative;
     
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
-    background: url(/slides/obelisk.png);
-    background-position:center center;
-    background-size: cover;
+    .slider {
+      top: 0;
+      left: 0;
+      z-index:-10;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: absolute;
+      .bg_slide {
+        display: none;
+        width: 100%;
+        height: 100%;
+      }
+      .active {
+        display:block;
+      }
+    }
     .middle {
       ._title { 
-        max-width: 100%;
-        margin-bottom: 4em;
+        padding: 5vw 0;
+       max-width: 600px;
       }
       .buttons {
         gap: 1em;

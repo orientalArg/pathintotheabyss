@@ -1,7 +1,9 @@
 ---
 const {title, desc, logo, OGimage} = Astro.props;
 ---
+
 <html lang="en">
+
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href={logo} />
@@ -29,10 +31,13 @@ const {title, desc, logo, OGimage} = Astro.props;
 		<meta name="twitter:image" content={OGimage} >
 		<link rel="icon" type="image/svg+xml" href="/images/flag.svg" />
   </head>
+
 	<body>
     <slot />
 	</body>
+
 </html>
+
 <style lang="scss" is:global>
   * {
     margin:0;
@@ -50,6 +55,8 @@ const {title, desc, logo, OGimage} = Astro.props;
     --darkgrey:#1E1E1E;
     
     --red:#D24343;
+    --lightred:#FF6A6A;
+    --brightred:#E83232;
     --violet:#313773;
     --orange:#FF792C;
     --transparent-violet:#291e4970;
@@ -63,6 +70,11 @@ const {title, desc, logo, OGimage} = Astro.props;
     
     --gd-white:linear-gradient(180deg,  #fff,#ffffff36);
     --gd-violet:linear-gradient(180deg,#3136733a,#31377300);
+    --gd-red:linear-gradient(180deg,  var(--red),var(--lightred));
+  }
+  ::selection {
+    color:var(--black);
+    background-color: var(--lightred);
   }
   body {
     margin: 0 auto;
@@ -144,6 +156,15 @@ const {title, desc, logo, OGimage} = Astro.props;
 
     background: var(--gd-white);
     background-clip: text;
+  }
+  .stroke {
+    color: transparent;
+    
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: "Karantina", system-ui;
+    
+    -webkit-text-stroke: 2px var(--brightred);
   }
   @keyframes slide_in_right {
     from {

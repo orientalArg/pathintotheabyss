@@ -11,8 +11,6 @@ export const ui = {
     },
     image: {
       og:'/images/EN/OG.png',
-      name: '/images/EN/name.svg',
-      theabyss: '/images/EN/theabyss.svg',
       map: '/images/EN/map.svg',
     },
     menu:{
@@ -116,6 +114,7 @@ export const ui = {
       },
     },
     abyss:{
+      title:"The Abyss",
       story: [
         {p:"The Abyss has never been so alive as it is now. The abyss is a dark place located in a gloomy environment in Greater Buenos Aires."},
         {p:" Embark on a bloody journey through the sinister open world of the abyss."},
@@ -145,8 +144,6 @@ export const ui = {
     },
     image: {
       og:'/images/ES/OG.png',
-      name: '/images/ES/name.svg',
-      theabyss: '/images/ES/theabyss.svg',
       map: '/images/ES/map.svg',
     },
     menu:{
@@ -250,6 +247,7 @@ export const ui = {
       },
     },
     abyss:{
+      title:"El abismo",
       story: [
         {p:"El Abismo nunca ha estado tan vivo como ahora. El abismo es un lugar oscuro ubicado en un ambiente lúgubre del Gran Buenos Aires."},
         {p:" Embárcate en un viaje sangriento a través del siniestro mundo abierto del abismo."},

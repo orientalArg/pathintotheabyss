@@ -1,10 +1,8 @@
 ---
-const {image, abyss, data} = Astro.props;
+const {abyss, data} = Astro.props;
 ---
 <section class="abyss" id="abyss">
-  <div class="_title">
-    <img src={image.theabyss} alt="a">
-  </div>
+  <h1 class="stroke _title">{abyss.title}</h1>
   <div class="content">
     <div class="story">
       {abyss.story.map((a) => <p>{a.p}</p>)}
@@ -55,11 +53,10 @@ const {image, abyss, data} = Astro.props;
   padding-bottom: 15vw;
   background-size: cover;
   background-image: url(/images/stone_figure.png);
-  ._title img {
-    padding: 4vw;
+  ._title {
+    padding: 5vw 0;
     margin: 0 auto;
-    display: block;
-    max-width: 100%;
+    max-width: 500px;
   }
   .content {
     gap: 2.5em;
