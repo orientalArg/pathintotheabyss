@@ -4,6 +4,7 @@ const {platforms, slides} = data;
 ---
 <section class="hero">
 
+  <p hidden>header slot</p>
   <slot />
 
   <div class="slider">
@@ -11,7 +12,9 @@ const {platforms, slides} = data;
   </div>
 
   <div class="middle">
-    <h1 class="stroke _title">{game.name}</h1>
+    <div class="_title">
+      {game.name.map(a => <h1 class="stroke">{a.p}</h1>)}
+    </div>
     <div class="buttons">
       <button class="learn" >{btn.learn}</button>
       <button class="reserve" >{btn.reserve}<img src="/icons/steam.svg" alt=""></button>
@@ -19,7 +22,7 @@ const {platforms, slides} = data;
   </div>
 
   <div class="bottom">
-    <small class="preorder">{preorder}</small>
+      <small class="preorder">{preorder}</small>
     <div class="buttons">
       {
         platforms.map((a) =>
