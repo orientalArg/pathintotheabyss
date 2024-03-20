@@ -31,25 +31,11 @@ function isLang() {
   return;
 }
 
-const {
-  game,
-  language,
-  btn,
-  image,
-  menu,
-  preorder,
-  nav,
-  gameplay,
-  reviews,
-  specs,
-  newsletter,
-  abyss,
-  footer
-} = isLang();
+const {game,language,btn,image,menu,preorder,nav,gameplay,reviews,specs,newsletter,abyss,footer} = isLang();
 
 // head meta tags
 let desc = gameplay.intro;
-let title = game.name;
+let title = game.title;
 let logo = "/images/logo.svg";
 let OGimage = image.og; //og:thumbnail that appears when shaing on social media
 ---

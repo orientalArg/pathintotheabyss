@@ -8,7 +8,7 @@ const date = new Date().getFullYear();
     <slot />
     <div class="center">
       <div class="links">
-        <h2 class="title">{game.name}</h2>
+        <h2 class="title">{game.title}</h2>
         <div class="columns">
           <ul>
             <li><p>{footer.platforms}</p></li>
@@ -44,13 +44,14 @@ const date = new Date().getFullYear();
 <style lang="scss">
   footer {
     min-height: 630px;
-    display:flex;
+
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     .center {
       width: 100%;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
       .links {
         .title {
@@ -80,8 +81,8 @@ const date = new Date().getFullYear();
         
         display: flex;
         align-items: center;
-        justify-content: space-between;
         flex-direction: column;
+        justify-content: space-between;
 
         background: var(--gd-violet);
         border: 1px solid var(--transparent-grey);
@@ -90,8 +91,8 @@ const date = new Date().getFullYear();
     .bottom {
       margin: 0 auto;
       padding-top: 5vw;
-      text-align: center;
       color: var(--color-secondary);
+      text-align: center;
       div {margin: 1vw 0;}
     }
   }

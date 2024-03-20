@@ -94,7 +94,9 @@ const {title, desc, logo, OGimage} = Astro.props;
       margin: 0 auto;
     }
   }
-  ul li {list-style: none;}
+  ul li {
+    list-style: none;
+  }
   h1 {font-size: 128px;}
   h2 {font-size: 70px;}
   h3 {font-size: 40px;}
@@ -146,6 +148,7 @@ const {title, desc, logo, OGimage} = Astro.props;
   .title {
     margin: 0;
     width: fit-content;
+    height: fit-content;
 
     font-weight: 500;
     font-style: normal;
@@ -158,6 +161,8 @@ const {title, desc, logo, OGimage} = Astro.props;
     background-clip: text;
   }
   .stroke {
+    width: fit-content;
+    height: fit-content;
     color: transparent;
     
     font-weight: 500;

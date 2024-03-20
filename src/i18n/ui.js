@@ -1,7 +1,11 @@
 export const ui = {
   en: {
     game: {
-      name:'The Path Into The Abyss',
+      name:[
+        {p:'The Path'},
+        {p:'Into The Abyss'}
+      ],
+      title: 'The Path Into The Abyss',
       trademarks:'Brainstorm Films. All Rights Reserved. Matias Rispau’s, The Path Into The Abyss, and the Brainstorm logo are registered or unregistered trademarks of Brainstorm Films in Argentina and/or other countries. Microsoft, the Xbox Sphere mark, the Series X logo, Series S logo, Series X|S logo, Xbox One, Xbox Series X, Xbox Series S, and Xbox Series X|S are trademarks of the Microsoft group of companies. “PlayStation LOGO”, “PlayStation”, “PS5 LOGO” and “PS4 LOGO” are registered trademarks or trademarks of Sony Interactive Entertainment Inc.',
       author:'matías rispau',
     },
@@ -134,7 +138,11 @@ export const ui = {
   },
   es: {  
     game: {
-      name:'El Camino Hacia El Abismo',
+      name:[
+        {p:'El Camino'},
+        {p:'Hacia El Abismo'}
+      ],
+      title: 'El Camino Hacia El Abismo',
       trademarks:'Brainstorm Films. Reservados todos los derechos. Matias Rispau’s, The Path Into The Abyss y el logo de Brainstorm son marcas registradas o no registradas de Brainstorm Films en Argentina y/u otros países. Microsoft, la marca Xbox Sphere, el logotipo de Series X, el logotipo de Series S, el logotipo de Series X|S, Xbox One, Xbox Series X, Xbox Series S y Xbox Series X|S son marcas comerciales del grupo de empresas Microsoft. “PlayStation LOGO”, “PlayStation”, “PS5 LOGO” y “PS4 LOGO” son marcas comerciales registradas o marcas comerciales de Sony Interactive Entertainment Inc.',
       author:'matías rispau',
     },
