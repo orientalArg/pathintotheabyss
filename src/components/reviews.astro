@@ -7,7 +7,7 @@ const {reviews} = Astro.props;
     {reviews.map((a) => 
     <div class="review" id="review">
       <img class="logo" src={a.logo} alt="">
-      <h3 class="quote title">{a.p}</h3>
+      <h3 class="quote title">" {a.p} "</h3>
     </div>
     )}
   </div>
@@ -19,17 +19,15 @@ const {reviews} = Astro.props;
 </section>
 
 <script>
-  let navButtons = document.getElementsByClassName("btn_nav");
-  navButtons[0].classList.add("active_nav");
-
   let current = 0;
+  
+  let navButtons = document.getElementsByClassName("btn_nav");
+  navButtons[current].classList.add("active_nav");
+
   let reviews = document.getElementsByClassName("review");
-  reviews[0].classList.add("active_review")
+  reviews[current].classList.add("active_review")
 
   function changeReview(n) {
-    if (n >= reviews.length) {n = 0}
-    if (n < 0) {n = reviews.length - 1}
-
     reviews[current].classList.toggle("active_review")
     navButtons[current].classList.toggle("active_nav")
 
@@ -40,11 +38,7 @@ const {reviews} = Astro.props;
   }
 
   document.querySelectorAll('.btn_nav').forEach((nav, index) => {
-    nav.addEventListener('click', () => {
-      if (current !== index) {
-        changeReview(index);
-      }
-    })
+    nav.addEventListener('click', () => { if (current !== index) { changeReview(index);}})
   })
 </script>
 
@@ -66,15 +60,6 @@ section {
         text-align: center;
         font-weight: lighter;
         text-transform: capitalize;
-        &::before, &::after {
-          content: '"';
-          font-size: 3em;
-          position: absolute;
-          font-family: Karantina;
-          color: var(--color-primary);
-        }
-        &::before { top: -5%;left: -5%;}
-        &::after { top: -5%;right: -5%;}
       }
     }
     .active_review { display: flex;}
@@ -92,7 +77,9 @@ section {
       border-radius: 0;
       background: var(--color-secondary);
     }
-    .active_nav { background: var(--color-primary);}
+    .active_nav {
+      background: var(--color-primary);
+    }
   }
 }
 @media (max-width:900px) {

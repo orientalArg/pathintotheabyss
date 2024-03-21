@@ -86,7 +86,6 @@ export const data = {
     {url: "/slides/national_library.png"},
     {url: "/slides/train_outside.png"},
     {url: "/slides/train_subterrain.png"},
-    {url: "/slides/character.png"},
     {url: "/slides/forest.png"},
     {url: "/slides/stone_figure.png"},
   ],
