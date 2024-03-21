@@ -17,6 +17,19 @@ export const ui = {
       og:'/images/EN/OG.png',
       map: '/images/EN/map.svg',
     },
+    nav: {
+      art: 'art',
+      devLog: 'dev log',
+      contact: 'contact',
+    },
+    btn: {
+      menu:'menu',
+      language: 'language',
+      learn: 'learn more',
+      reserve: 'reserve now',
+      play: 'play',
+      pause: 'pause',
+    },
     menu:{
       reach:'BUSINESS CONTACT',
       follow:'FOLLOW US ON SOCIAL MEDIA',
@@ -35,18 +48,6 @@ export const ui = {
         devlog:'devlog',
         art:'art',
       },
-    },
-    nav: {
-      art: 'art',
-      devLog: 'dev log',
-      contact: 'contact',
-    },
-    btn: {
-      menu:'menu',
-      language: 'language',
-      learn: 'learn more',
-      reserve: 'reserve now',
-      play: 'play video',
     },
     preorder: 'Preorder is available via Steam, Epic Games Store, Microsoft Store, GOG as well as on Xbox Series X and Xbox Series S.',
     gameplay: {
@@ -154,6 +155,19 @@ export const ui = {
       og:'/images/ES/OG.png',
       map: '/images/ES/map.svg',
     },
+    nav: {
+      art: 'arte',
+      devLog: 'registro de desarrollo',
+      contact: 'contacto',
+    },
+    btn: {
+      menu:'menú',
+      language: 'idioma',
+      learn: 'aprender más',
+      reserve: 'reservar ahora',
+      play: 'reproducir',
+      pause: 'pausar',
+    },
     menu:{
       reach:'CONTACTO DE NEGOCIO',
       follow:'SÍGUENOS EN LAS REDES SOCIALES',
@@ -172,18 +186,6 @@ export const ui = {
         devlog:'registro de desarrollo',
         art:'arte',
       },
-    },
-    nav: {
-      art: 'arte',
-      devLog: 'registro de desarrollo',
-      contact: 'contacto',
-    },
-    btn: {
-      menu:'menú',
-      language: 'idioma',
-      learn: 'aprender más',
-      reserve: 'reservar ahora',
-      play: 'reproducir vídeo',
     },
     preorder: 'El pedido anticipado está disponible a través de Steam, Epic Games Store, Microsoft Store, GOG, así como en Xbox Series X y Xbox Series S.',
     gameplay: {
