@@ -40,7 +40,7 @@ const {platforms, slides} = data;
 </section>
 
 <script>
-  let current = 0;
+  let current = 1;
   let slides = document.getElementsByClassName("bg_slide");
   slides[current].classList.add("active")
 </script>
@@ -62,10 +62,13 @@ const {platforms, slides} = data;
       height: 100%;
       overflow: hidden;
       position: absolute;
+      
+      display: flex;
+      justify-content: center;
       .bg_slide {
-        display: none;
-        width: 100%;
+        width: auto;
         height: 100%;
+        display: none;
       }
       .active {
         display:block;
