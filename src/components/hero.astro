@@ -1,6 +1,6 @@
 ---
 const {game, btn, preorder, data} = Astro.props
-const {platforms, slides} = data;
+const {platforms, slides_hero} = data;
 ---
 <section class="hero">
 
@@ -8,7 +8,7 @@ const {platforms, slides} = data;
   <slot />
 
   <div class="slider">
-    {slides.map(a => <img class="bg_slide" src={a.url} alt="a"/>)}
+    {slides_hero.map(a => <img class="bg_slide" src={a.url} alt="a"/>)}
   </div>
 
   <div class="middle">
@@ -44,7 +44,7 @@ const {platforms, slides} = data;
 </section>
 
 <script>
-  let current = 0;
+  let current = -1;
   let slides = document.getElementsByClassName("bg_slide");
   
   carousel();
@@ -61,13 +61,9 @@ const {platforms, slides} = data;
       
       slides[current].classList.toggle("active")
       
-      setTimeout(carousel, 6000)
+      setTimeout(carousel, 10000)
     }
   }
-  
-  //let pause = document.getElementById("pauseSlider").addEventListener("click", toggleSlider);
-  //let play = document.getElementById("playSlider").addEventListener("click", toggleSlider);
-  
 </script>
 
 <style lang="scss">
@@ -94,7 +90,7 @@ const {platforms, slides} = data;
         width: auto;
         height: 100%;
         display: none;
-        animation: fade_in ease-out 6s;
+        animation: slide_in_bottom ease-out 50ms;
       }
       .active {
         display:block;
