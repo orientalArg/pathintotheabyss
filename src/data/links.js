@@ -3,34 +3,34 @@ export const data = {
     {
       name : "microsoft store",
       url : "https://www.microsoft.com/es-ar/store/games/windows",
-      image : "/icons/microsoft.svg",
+      image : "/images/icons/microsoft.svg",
     },
     {
       name : "steam",
       url : "https://store.steampowered.com/curator/4141243-PlayNOmore-Videojuegos-Argentina/",
-      image : "/icons/steam.svg",
+      image : "/images/icons/steam.svg",
     },
     {
       name : "epic games",
       url : "https://store.epicgames.com/en-US/",
-      image : "/icons/epic.svg",
+      image : "/images/icons/epic.svg",
     },
   ],
   social : [
     {
       name : "discord",
       url : "https://discord.gg/5yP82qP8",
-      image : "/icons/discord.svg"
+      image : "/images/icons/discord.svg"
     },
     {
       name : "youtube",
       url : "https://www.youtube.com/@ThePathIntoTheAbyss",
-      image : "/icons/youtube.svg"
+      image : "/images/icons/youtube.svg"
     },
     {
       name : "twitter",
       url : "https://twitter.com/Abyssthegame",
-      image : "/icons/twitter.svg"
+      image : "/images/icons/twitter.svg"
     }
   ],
   developers : [
@@ -81,20 +81,20 @@ export const data = {
     },
   ],
   slides_all : [
-    {url: "/slides/obelisk.png"},
-    {url: "/slides/city_red.png"},
-    {url: "/slides/national_library.png"},
-    {url: "/slides/train_outside.png"},
-    {url: "/slides/train_subterrain.png"},
-    {url: "/slides/forest.png"},
-    {url: "/slides/stone_figure.png"},
-    {url: "/slides/character.png"},
+    {url: "/images/slides/obelisk.png"},
+    {url: "/images/slides/city_red.png"},
+    {url: "/images/slides/national_library.png"},
+    {url: "/images/slides/train_outside.png"},
+    {url: "/images/slides/train_subterrain.png"},
+    {url: "/images/slides/forest.png"},
+    {url: "/images/slides/stone_figure.png"},
+    {url: "/images/slides/character.png"},
   ],
   slides_hero : [
-    {url: "/slides/obelisk.png"},
-    {url: "/slides/city_red.png"},
-    {url: "/slides/national_library.png"},
-    {url: "/slides/forest.png"},
-    {url: "/slides/stone_figure.png"},
+    {url: "/images/slides/obelisk.png"},
+    {url: "/images/slides/city_red.png"},
+    {url: "/images/slides/national_library.png"},
+    {url: "/images/slides/forest.png"},
+    {url: "/images/slides/stone_figure.png"},
   ],
 }
