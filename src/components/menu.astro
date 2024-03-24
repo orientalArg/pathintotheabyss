@@ -33,11 +33,7 @@ const {contact, world, devlog, art} = pages;
       <li class="contact">
         <p>{menu.follow}</p>
         <nav>
-          {
-            social.map((a) => <a href={a.url}>
-              <img src={a.image} alt="" srcset="" title={a.name}>
-            </a>)
-          }
+          {social.map((a) => <a href={a.url}><img src={a.image} alt="" srcset="" title={a.name}></a>)}
         </nav>
       </li>
     </ul>
