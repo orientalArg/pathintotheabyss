@@ -1,0 +1,152 @@
+---
+const url = Astro.url.pathname;
+const {menu, image, data} = Astro.props;
+
+const {nav, pages} = menu;
+const {gameplay, reviews, requirements, newsletter, abyss} = nav;
+const {social} = data;
+
+const {contact, world, devlog, art} = pages;
+
+---
+<section class="wrapper" id="menu_wrapper">
+  <button class="close" id="menu_close">x</button>
+  <div class="content">
+    <ul class="column">
+      <li><h2 class="title">{nav.title}</h2></li>
+      <li><a href={url + "#gameplay"}>{gameplay}</a></li>
+      <li><a href={url + "#reviews"}>{reviews}</a></li>
+      <li><a href={url + "#specs"}>{requirements}</a></li>
+      <li><a href={url + "#newsletter"}>{newsletter}</a></li>
+      <li><a href={url + "#abyss"}>{abyss}</a></li>
+      <li class="contact">
+        <p>{menu.reach}</p>
+        <nav><img src="/images/logo.svg" alt=""><a href="">brainstorm films</a></nav>
+      </li>
+    </ul>
+    <ul class="column">
+      <li><h2 class="title">{pages.title}</h2></li>
+      <li><a href={url + "contact"}>{contact}</a></li>
+      <li><a href={url + "world"}>{world}</a></li>
+      <li><a href={url + "devlog"}>{devlog}</a></li>
+      <li><a href={url + "art"}>{art}</a></li>
+      <li class="contact">
+        <p>{menu.follow}</p>
+        <nav>
+          {social.map((a) => <a href={a.url}><img src={a.image} alt="" srcset="" title={a.name}></a>)}
+        </nav>
+      </li>
+    </ul>
+    <div class="map">
+      <img src={image.map} alt="">
+    </div>
+  </div>
+  <div class="newsletter">
+    <slot />
+  </div>
+</section>
+
+<style lang="scss">
+  .wrapper {
+    top: 0;
+    left: 0;
+    z-index: 10;
+    position: sticky;
+
+    width: 100%;
+    height: 100vh;
+    display: none;
+
+    background: var(--black);
+    animation: slide_in_bottom ease-out 300ms;
+    .close {
+      top: 2vw;
+      right: 4vw;
+      z-index: 10;
+      position: absolute;
+    }
+    .content {
+      gap: 10vw;
+      display: flex;
+      padding-top:6vw;
+      padding-bottom:4vw;
+      position: relative;
+      justify-content: space-between;
+      .column {
+        display: flex;
+        flex-direction: column;
+        .title {
+          margin-bottom: .5vw;
+          text-transform: capitalize;
+        }
+        li {
+          width: fit-content;
+          margin-bottom: 2vh;
+          a {font-weight: 600;}
+        }
+        .contact {
+          margin-top: auto;
+          nav {
+            gap: .5vw;
+            display: flex;
+            align-items: center;
+            margin-top:.5vw;
+            img { height:30px;}
+          }
+        }
+      }
+      .map {
+        width: 440px;
+      }
+    }
+    .newsletter {
+      left: 0;
+      bottom: 5%;
+      z-index: 10;
+      width: 100%;
+      position: absolute;
+      &::after {
+        top: 0;
+        left:50%;
+        content:'';
+        width: 70%;
+        height: 1px;
+        z-index: 10;
+        position: absolute;
+        transform: translateX(-50%);
+        background: var(--darkgrey);
+      }
+    }
+  }
+  @media (max-width:1100px) {
+    .wrapper {
+      .content .map img {width: 350px;}
+      .newsletter {
+        bottom: 10%;
+        &::after {width: 100%;}
+      }
+    }
+  }
+  @media (max-width:1000px) {
+    .wrapper .content {
+      gap: 20vw;
+      justify-content: center;
+      .map { display: none;}
+    }
+  }
+  @media (max-width:600px) {
+    .wrapper {
+      .content {
+        gap: 3vw;
+        flex-direction: column;
+        .column {
+          align-items: center;
+          .contact nav { justify-content: center;}
+        }
+      }
+      .newsletter {
+        display: none;
+      }
+    }
+  }
+</style>

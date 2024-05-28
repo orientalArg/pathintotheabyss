@@ -1,0 +1,91 @@
+---
+const {reviews} = Astro.props;
+---
+<section id="reviews" >
+  
+  <div class="reviews">
+    {reviews.map((a) => 
+    <div class="review" id="review">
+      <img class="logo" src={a.logo} alt="">
+      <h3 class="quote title">" {a.p} "</h3>
+    </div>
+    )}
+  </div>
+
+  <div class="buttons_nav">
+    {reviews.map((a) => <button class="btn_nav"></button>)}
+  </div>
+
+</section>
+
+<script>
+  let current = 0;
+  
+  let navButtons = document.getElementsByClassName("btn_nav");
+  navButtons[current].classList.add("active_nav");
+
+  let reviews = document.getElementsByClassName("review");
+  reviews[current].classList.add("active_review")
+
+  function changeReview(n) {
+    reviews[current].classList.toggle("active_review")
+    navButtons[current].classList.toggle("active_nav")
+
+    reviews[n].classList.toggle("active_review")
+    navButtons[n].classList.toggle("active_nav")
+
+    current = n;
+  }
+
+  document.querySelectorAll('.btn_nav').forEach((nav, index) => {
+    nav.addEventListener('click', () => { if (current !== index) { changeReview(index);}})
+  })
+</script>
+
+<style lang="scss">
+section {
+  .reviews {
+    .review {
+      gap: 4vw;
+      display: none;
+      padding: 0 15vw;
+      min-height: 250px;
+      align-items: center;
+      justify-content: center;
+      .logo { max-height: 100px;}
+      .quote {
+        height: 100%;
+        padding: 0 1vw;
+        position: relative;
+        text-align: center;
+        font-weight: lighter;
+        text-transform: capitalize;
+      }
+    }
+    .active_review { display: flex;}
+  }
+  .buttons_nav {
+    gap: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .btn_nav {
+      padding: 0;
+      height: 5px;
+      width: 50px;
+      border: none;
+      border-radius: 0;
+      background: var(--color-secondary);
+    }
+    .active_nav {
+      background: var(--color-primary);
+    }
+  }
+}
+@media (max-width:900px) {
+  section .reviews .review {
+    padding: 10vw 5vw;
+    flex-direction: column;
+  }
+}
+</style>

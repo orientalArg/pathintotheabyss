@@ -1,0 +1,155 @@
+---
+const {game, btn, preorder, data} = Astro.props
+const {platforms, slides_hero} = data;
+---
+<section class="hero">
+
+  <p hidden>header slot</p>
+  <slot />
+
+  <div class="slider">
+    {slides_hero.map(a => <img class="bg_slide" src={a.url} alt="a"/>)}
+  </div>
+
+  <div class="title_wrapper">
+    <div class="_title">
+      {game.name.map(a => <h1 class="stroke">{a.p}</h1>)}
+    </div>
+    <div class="buttons">
+      <button class="learn" >{btn.learn}</button>
+      <a href="https://store.steampowered.com/app/3000460/The_Path_Into_The_Abyss/" class="reserve" >{btn.reserve}<img src="/images/icons/steam.svg" alt=""></a>
+    </div>
+  </div>
+
+  <div class="platforms">
+      <small class="preorder">{preorder}</small>
+    <div class="buttons">
+      {
+        platforms.map((a) =>
+        <a href={a.url}>
+          <img src={a.image} alt="" srcset="" title={a.name}>
+        </a>)
+      }
+      <button class="play" id="playSlider">
+        <p>{btn.play}</p>
+        <img src="/icons/play.svg" alt="">
+      </button>
+      <button class="pause" id="pauseSlider">
+        <p>{btn.pause}</p>
+        <img src="/icons/play.svg" alt="">
+      </button>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  let current = -1;
+  let slides = document.getElementsByClassName("bg_slide");
+  
+  carousel();
+  
+  function carousel() {
+    if(current < slides.length){
+      current++;
+      
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");  
+      }
+      
+      if (current >= slides.length) {current = 0}
+      
+      slides[current].classList.toggle("active")
+      
+      setTimeout(carousel, 10000)
+    }
+  }
+</script>
+
+<style lang="scss">
+  .hero {
+    gap: 5vw;
+    min-height: 90vh;
+    position: relative;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .slider {
+      top: 0;
+      left: 0;
+      z-index:-10;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: absolute;
+      
+      display: flex;
+      justify-content: center;
+      img {
+        width: auto;
+        height: 100%;
+        display: none;
+        animation: slide_in_bottom ease-out 50ms;
+      }
+      .active {
+        display:block;
+      }
+    }
+    .title_wrapper {
+      ._title { 
+        padding: 5vw 0;
+        max-width: 600px;
+        text-shadow: 1px 1px 0px #00000038;
+      }
+      .buttons {
+        gap: 1em;
+        display: flex;
+        .learn {
+          padding: 15px;
+          &:hover {background: none;}
+        }
+        .reserve {
+          gap: 1em;
+          display: flex;
+          align-items: center;
+
+          padding: 15px;
+          font-weight: 400;
+          border-radius: 5px;
+          background: var(--violet);
+          &:hover img {
+            animation: slide_in_right 250ms linear;
+          }
+        }
+      }
+    }
+    .platforms {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .preorder {max-width: 400px;}
+      .buttons {
+        gap: 1vw;
+        display: flex;
+        align-items: center;
+        .play, .pause {display: none;}
+      }
+    }
+  }
+  @media (max-width:1000px) {
+    .hero {
+      padding: 15px 25px;
+      .middle .buttons button {
+        padding: 2vw;
+      }
+      .bottom {
+        gap: 2em;
+        flex-direction: column;
+        .buttons button {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+</style>

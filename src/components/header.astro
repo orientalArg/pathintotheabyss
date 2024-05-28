@@ -1,0 +1,108 @@
+---
+const url = Astro.url.pathname;
+const {nav, btn, language} = Astro.props;
+const {art, contact, devLog} = nav;
+const {menu} = btn;
+---
+<header>
+  <div class="logo">
+    <img src="/images/logo.svg" alt="">
+    <p>brainstorming</p>
+    <p>films</p>  
+  </div>
+  <div class="content">
+    <nav class="nav">
+      <a href={url + "devlog"} >{devLog}</a>
+      <span>/</span>
+      <a href={url + "art"} >{art}</a>
+      <span>/</span>
+      <a href={url + "contact"} >{contact}</a>
+    </nav>
+    <div class="buttons">
+      <button class="btn_lang" >
+        <p>{btn.language}</p>
+        <img src="/icons/globe.svg" alt="">
+        <div class="column">
+          <a href="/es/" title={language.es} >ES</a>
+          <a href="/en/" title={language.en} >EN</a>
+        </div>
+      </button>
+      <button class="btn_menu" id="menu_open">
+        <span>{menu}</span>
+        <img src="/icons/burguer.svg" alt="">
+      </button>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  header {
+    width: 100%;
+    display: flex;
+    .logo {
+      padding: 15px;
+      border-radius: 0 0 15px 15px;
+      background: rgb(99, 99, 99, 25%);
+      img {
+        width: 100%;
+        margin: 0 auto;
+      }
+      p {
+        font-size: 17px;
+        font-weight: 500;
+        text-align: center;
+        text-transform: capitalize;
+        font-family: 'Karantina', system-ui, -apple-system, Roboto;
+      }
+    }
+    .content {
+      width: 100%;
+      display: flex;
+      padding-left: 4vw;
+      align-items: center;
+      justify-content: space-between;
+      .nav a { margin: 0 1em;}
+      .buttons {
+        display: flex;
+        align-items: center;
+        .btn_lang {
+          border: none;
+          padding: 1em;
+          position: relative;
+          &:hover .column {display: flex;}
+          .column {
+            top: 100%;
+            right: 0;
+            position: absolute;
+
+            width: 100%;
+            padding: 1em 0;
+
+            display: none;
+            align-items: end;
+            flex-direction: column;
+            a {
+              width: 100%;
+              padding: 1em 0;
+              background: var(--black);
+              animation: slide_in_right 300ms ease-out;
+              border: 1px var(--color-secondary) solid;
+              &:hover {color:var(--color-primary);background: var(--violet);}
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width:900px) {
+    header .content {
+      padding-left: 0;
+      align-items: baseline;
+      nav { display: none;}
+      .buttons {
+        margin-left: auto;
+        .btn_lang p { display: none;}
+      }
+    }
+  }
+</style>

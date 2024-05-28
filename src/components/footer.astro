@@ -1,0 +1,130 @@
+---
+const {game, footer, data} = Astro.props;
+
+const date = new Date().getFullYear();
+---
+<section>
+    <footer>
+    <slot />
+    <div class="center">
+      <div class="links">
+        <h2 class="title">{game.title}</h2>
+        <div class="columns">
+          <ul>
+            <li><p>{footer.platforms}</p></li>
+            {data.consoles.map((a) => <li><a href={a.url}>{a.name}</a></li>)}
+          </ul>
+          <ul>
+            <li><p>{footer.partners}</p></li>
+            {data.partners.map((a) => <li><a href={a.url}>{a.name}</a></li>)}
+          </ul> 
+          <ul>
+            <li><p>{footer.developers}</p></li>
+            {data.developers.map((a) => <li><a href={a.url}>{a.name}</a></li>)}
+          </ul>
+        </div>
+      </div>
+      <div class="disclaimer">
+        <h2 class="title">{footer.disclaimer}</h2>
+        <div>
+          <img src="/images/icons/fear.svg" alt="">
+          <img src="/images/icons/violence.svg" alt="">
+          <img src="/images/icons/drugs.svg" alt="">
+          <img src="/images/icons/language.svg" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div><small>©{date} {game.trademarks}</small></div>
+      <div><small><a href="https://github.com/orientalArg" class="title">Design and Code by Joaquín Reynoso</a></small></div>
+    </div>
+  </footer>
+</section>
+
+<style lang="scss">
+  footer {
+    min-height: 630px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .center {
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      .links {
+        .title {
+          padding: 5vw 0;
+        }
+        .columns {
+          display: flex;
+          justify-content: space-between;
+          p {
+            margin-bottom: 2.5vh;
+            text-transform: uppercase;
+          }
+          a {
+            display: block;
+            max-width: 120px;
+            font-weight: 600;
+          }
+        }
+      }
+      .disclaimer {
+        padding: 2vw 1vw;
+        text-align: center;
+        
+        width: 100%;
+        max-width: 500px;
+        min-height: 300px;
+        
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+
+        background: var(--gd-violet);
+        border: 1px solid var(--transparent-grey);
+      }
+    }
+    .bottom {
+      margin: 0 auto;
+      padding-top: 5vw;
+      color: var(--color-secondary);
+      text-align: center;
+      div {margin: 1vw 0;}
+    }
+  }
+  @media (max-width:1000px) {
+    footer .center {
+      align-items: center;
+      .disclaimer {
+        max-width: 350px;
+        min-height: 250px;
+      }
+    }
+  }
+  @media (max-width:800px) {
+    footer {
+      h2 {text-align: center;}
+      .center {
+        gap: 5vw;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+  }
+  @media (max-width:600px) {
+    footer {
+      h2 {text-align: center;}
+      .center .columns {
+        gap: 5vh;
+        text-align: center;
+        align-items: center;
+        flex-direction: column;
+        ul li a {max-width: 100vw;}
+      }
+    }
+  }
+</style>

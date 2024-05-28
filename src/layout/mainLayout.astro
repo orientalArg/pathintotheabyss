@@ -1,0 +1,202 @@
+---
+const {title, desc, logo, OGimage} = Astro.props;
+---
+
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href={logo} />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+    <meta name="description" content={desc}>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Karantina:wght@300;400;700&display=swap" rel="stylesheet">  
+
+		<meta property="og:url" content={Astro.url.pathname} />
+		<meta property="og:type" content="image/png" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={desc}>
+		<meta property="og:image" content={OGimage} />
+		<meta property="og:image:alt" content="An image of me, my stack [ASTRO, REACT, SCSS] and my username across social media" />
+		<meta property="og:site_name" content="https://joaquinreynoso.vercel.app" />
+		<meta property="og:locale" content="en_AR" />
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:domain" content="joaquinreynoso.vercel.app">
+		<meta property="twitter:url" content={Astro.url.pathname}>
+		<meta name="twitter:title" content={title}>
+		<meta name="twitter:description" content={desc}>
+		<meta name="twitter:image" content={OGimage} >
+		<link rel="icon" type="image/svg+xml" href="/images/flag.svg" />
+  </head>
+
+	<body>
+    <slot />
+	</body>
+
+</html>
+
+<style lang="scss" is:global>
+  * {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    scrollbar-width: 5px;
+    scrollbar-color: var(--red) var(--black);
+  }
+  :root, html {
+    background: black;
+    
+    --white:#e0e0e0;
+    --black:#000;
+    --grey:#d9d9d9;
+    --darkgrey:#1E1E1E;
+    
+    --red:#D24343;
+    --lightred:#FF6A6A;
+    --brightred:#E83232;
+    --violet:#313773;
+    --orange:#FF792C;
+    --transparent-violet:#291e4970;
+    --transparent-grey:#d9d9d980;
+
+    --color-primary:var(--white);
+    --color-secondary:var(--transparent-grey);
+    
+    --card-background:var(--black);
+    --image-filter:var(--transparent-violent);
+    
+    --gd-white:linear-gradient(180deg,  #fff,#ffffff64);
+    --gd-violet:linear-gradient(180deg,#23005C3a,#31377300);
+    --gd-red:linear-gradient(180deg,  var(--red),var(--lightred));
+  }
+  ::selection {
+    color:var(--black);
+    background-color: var(--lightred);
+  }
+  body {
+    margin: 0 auto;
+    color: var(--color-primary);
+    font-family: "Inter", sans-serif;
+  }
+  section {
+    padding: 0 5vw 2em 5vw;
+    @media (max-width: 1100px){
+      padding: 0 2vw 2em 2vw;
+    }
+    @media (min-width: 1441px){
+      padding: 0 10vw 3vw 10vw;
+    }
+    @media (min-width: 1600px){
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+  }
+  ul li {
+    list-style: none;
+  }
+  h1 {font-size: 128px;}
+  h2 {font-size: 70px;}
+  h3 {font-size: 40px;}
+  h4 {font-size: 22px;}
+  @media (max-width:600px) {
+    h1 {font-size: 20vw;}
+    h2 {font-size: 15vw;}
+    h3 {font-size: 10vw;}
+    h4 {font-size: 5vw;}
+  }
+  a, span {
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  a {
+    color: var(--color-primary);
+    &:hover {
+      color: var(--red);cursor: pointer;
+    }
+    &:hover img {
+      opacity: .75;
+      transform: scale(1.2);
+    }
+  }
+  button {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Inter", sans-serif;
+
+    gap: 1em;
+    display: flex;
+    align-items: center;
+
+    padding: 10px 2.5em;
+    
+    color: var(--color-primary);
+    border-radius: 2em;
+    border: var(--color-secondary) 1px solid;
+    background: none;
+    &:hover {
+      cursor: pointer;
+      filter: brightness(1.1);
+      background: var(--violet);
+    }
+  }
+  .title {
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
+
+    font-weight: 500;
+    font-style: normal;
+    color: transparent;
+
+    text-transform: uppercase;
+    font-family: "Karantina", system-ui;
+
+    background: var(--gd-white);
+    background-clip: text;
+  }
+  .stroke {
+    width: fit-content;
+    height: fit-content;
+    color: transparent;
+    
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: "Karantina", system-ui;
+    
+    -webkit-text-stroke: 2px var(--brightred);
+  }
+  @keyframes slide_in_right {
+    from {
+      opacity: .5;
+      transform: translateX(25%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+  @keyframes slide_in_bottom {
+    from {
+      opacity: .5;
+      transform: translateY(25%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @keyframes fade_in {
+    from {
+      opacity: .5;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>

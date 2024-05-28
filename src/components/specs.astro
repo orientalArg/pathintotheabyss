@@ -1,0 +1,177 @@
+---
+const {specs} = Astro.props;
+const {title, system, gameplay, languages} = specs;
+const {voices, subtitles} = languages;
+---
+
+<section class="specs" id="specs">
+  <div class="_title">
+    <h2 class="title">{title}</h2>
+  </div>
+  <div class="grid">
+    <div class="card _minimum">
+      <h3 class="title">{system.minimum}</h3>
+      <div class="wrapper">
+        <ul class="c_left">
+          <li><p>{system.os}</p></li>
+          <li><p>{system.graphics}</p></li>
+          <li><p>{system.processor}</p></li>
+          <li><p>{system.memory}</p></li>
+          <li><p>{system.disc}</p></li>
+        </ul>
+        <ul class="c_right">
+          <li><h4 class="title">Windows 10/Windows 11</h4></li>
+          <li><h4 class="title">AMD Radeon RX 580 8GB NVIDIA GeForce GTX 1060 6GB</h4></li>
+          <li><h4 class="title">AMD Ryzen 5 1600X / Intel Core i5-7600K</h4></li>
+          <li><h4 class="title">8 GB</h4></li>
+          <li><h4 class="title">50 GB SSD</h4></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card _gameplay">
+      <h3 class="title">{gameplay.title}</h3>
+      <div class="wrapper">
+        <div class="columns">
+          <ul class="c_left">
+            <li><img src="/icons/profile.svg" alt=""></li>
+            <li><img src="/icons/controller.svg" alt=""></li>
+          </ul>
+          <ul class="c_right">
+            <li><h4 class="title">{gameplay.single}</h4></li>
+            <li><h4 class="title">{gameplay.controller}</h4></li>
+          </ul>
+        </div>
+        <div class="icons">
+          <img src="/images/icons/fear.svg" alt="">
+          <img src="/images/icons/violence.svg" alt="">
+          <img src="/images/icons/drugs.svg" alt="">
+          <img src="/images/icons/language.svg" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="card _recommended">
+      <h3 class="title">{system.recommended}</h3>
+      <div class="wrapper">
+        <ul class="c_left">
+          <li><p>{system.os}</p></li>
+          <li><p>{system.graphics}</p></li>
+          <li><p>{system.processor}</p></li>
+          <li><p>{system.memory}</p></li>
+          <li><p>{system.disc}</p></li>
+        </ul>
+        <ul class="c_right">
+          <li><h4 class="title">Windows 10/Windows 11</h4></li>
+          <li><h4 class="title">AMD Radeon RX 580 8GB NVIDIA GeForce GTX 1060 6GB</h4></li>
+          <li><h4 class="title">AMD Ryzen 5 1600X / Intel Core i5-7600K</h4></li>
+          <li><h4 class="title">8 GB</h4></li>
+          <li><h4 class="title">50 GB SSD</h4></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card _language">
+      <h3 class="title">{languages.title}</h3>
+      <div class="wrapper">
+        <ul>
+          <li>
+            <h3 class="title">{voices.title}</h3>
+          </li>
+          <div class="columns">
+            {voices.list.map((a) => <li><h4 class="title">{a.lang}</h4></li> )}
+          </div>
+          <li>
+            <h3 class="title">{subtitles.title}</h3>
+          </li>
+          <div class="columns">
+            {subtitles.list.map((a) => <li><h4 class="title">{a.lang}</h4></li> )}
+          </div>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style lang="scss">
+  .specs {
+    padding: 4vw;
+    min-height: 1000px;
+    background-size: cover;
+    background-image: url(/images/stone_figures.png);
+    ._title .title {
+      margin: 1em auto;
+      text-transform: uppercase;
+    }
+    .grid {
+      gap: 1vw;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto, 300px;
+      grid-template-columns: repeat(2, minmax(50%, 511px));
+      .card {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        max-width: 511px;
+        .title {
+          text-transform: uppercase;
+        }
+        .wrapper {
+          gap: 2vw;
+          padding: 2vw 1vw;
+          
+          width: 100%;
+          max-width: 511px;
+          min-height: 350px;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          
+          border: 1px solid var(--transparent-grey);
+          ul {
+            li {
+              margin: 1em 0;
+              line-height: 22px;
+              h4 {
+                text-align: left;
+                color: var(--red);
+                text-transform: capitalize;
+              }
+              p {
+                text-align: right ;
+                text-transform: uppercase;
+              }
+            }
+          }
+        }
+      }
+      ._gameplay .wrapper,
+      ._language .wrapper {
+        flex-direction: column;
+        .title {
+          font-size: 24px;
+        }
+        .columns {
+          gap: 2em;
+          display: flex;
+        }
+      }
+      ._gameplay .icons {
+        height: 50px;
+        img { height: 100%;}
+      }
+      ._language .wrapper .columns li {
+        list-style: disc;
+        color: var(--red);
+      }
+    }
+  }
+  @media (max-width:900px) {
+    .specs .grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+</style>
