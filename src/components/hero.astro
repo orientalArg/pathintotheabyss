@@ -11,17 +11,17 @@ const {platforms, slides_hero} = data;
     {slides_hero.map(a => <img class="bg_slide" src={a.url} alt="a"/>)}
   </div>
 
-  <div class="middle">
+  <div class="title_wrapper">
     <div class="_title">
       {game.name.map(a => <h1 class="stroke">{a.p}</h1>)}
     </div>
     <div class="buttons">
       <button class="learn" >{btn.learn}</button>
-      <button class="reserve" >{btn.reserve}<img src="/images/icons/steam.svg" alt=""></button>
+      <a href="https://store.steampowered.com/app/3000460/The_Path_Into_The_Abyss/" class="reserve" >{btn.reserve}<img src="/images/icons/steam.svg" alt=""></a>
     </div>
   </div>
 
-  <div class="bottom">
+  <div class="platforms">
       <small class="preorder">{preorder}</small>
     <div class="buttons">
       {
@@ -96,7 +96,7 @@ const {platforms, slides_hero} = data;
         display:block;
       }
     }
-    .middle {
+    .title_wrapper {
       ._title { 
         padding: 5vw 0;
         max-width: 600px;
@@ -110,14 +110,21 @@ const {platforms, slides_hero} = data;
           &:hover {background: none;}
         }
         .reserve {
+          gap: 1em;
+          display: flex;
+          align-items: center;
+
+          padding: 15px;
           font-weight: 400;
           border-radius: 5px;
-          padding: 15px;
           background: var(--violet);
+          &:hover img {
+            animation: slide_in_right 250ms linear;
+          }
         }
       }
     }
-    .bottom {
+    .platforms {
       width: 100%;
       display: flex;
       justify-content: space-between;

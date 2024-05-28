@@ -118,7 +118,7 @@ export const ui = {
         terms:'I have read and accepted the Terms and Conditions and the Privacy Policy'
       },
     },
-    abyss:{
+    lore:{
       title:"The Abyss",
       story: [
         {p:"The Abyss has never been so alive as it is now. The abyss is a dark place located in a gloomy environment in Greater Buenos Aires."},
@@ -256,7 +256,7 @@ export const ui = {
         terms:'He leído y acepto los Términos y Condiciones y la Política de Privacidad'
       },
     },
-    abyss:{
+    lore:{
       title:"El abismo",
       story: [
         {p:"El Abismo nunca ha estado tan vivo como ahora. El abismo es un lugar oscuro ubicado en un ambiente lúgubre del Gran Buenos Aires."},

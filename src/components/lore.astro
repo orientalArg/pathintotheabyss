@@ -1,12 +1,12 @@
 ---
-const {abyss, data} = Astro.props;
+const {lore, data} = Astro.props;
 const {slides_all} = data;
 ---
 <section class="abyss" id="abyss">
-  <h1 class="stroke _title">{abyss.title}</h1>
+  <h1 class="stroke _title">{lore.title}</h1>
   <div class="content">
     <div class="story">
-      {abyss.story.map((a) => <p>{a.p}</p>)}
+      {lore.story.map((a) => <p>{a.p}</p>)}
     </div>
     <div class="grid">
       <p hidden> visible from 1100px width </p>

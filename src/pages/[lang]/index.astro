@@ -1,5 +1,5 @@
 ---
-import {ui} from '../../i18n/index.js'
+import {ui} from '../../data/i18n.js'
 import {data} from '../../data/links.js'
 
 import MainLayout from '../../layout/mainLayout.astro'
@@ -11,7 +11,7 @@ import Reviews from '../../components/reviews.astro'
 import Newsletter from '../../components/newsletter.astro'
 import Gameplay from '../../components/gameplay.astro'
 import Specs from '../../components/specs.astro'
-import Abyss from '../../components/abyss.astro'
+import Lore from '../../components/lore.astro'
 import Footer from '../../components/footer.astro'
 
 export function getStaticPaths () { 
@@ -31,7 +31,7 @@ function isLang() {
   return;
 }
 
-const {game,language,btn,image,menu,preorder,nav,gameplay,reviews,specs,newsletter,abyss,footer} = isLang();
+const {game,language,btn,image,menu,preorder,nav,gameplay,reviews,specs,newsletter,lore,footer} = isLang();
 
 // head meta tags
 let desc = gameplay.intro;
@@ -61,9 +61,9 @@ let OGimage = image.og; //og:thumbnail that appears when shaing on social media
     <Newsletter {newsletter} /> 
   </div>
 
-  <Abyss {abyss} {data} >
+  <Lore {lore} {data} >
     <Links {data} />
-  </Abyss>
+  </Lore>
 
   <Footer {game} {footer} {data} > 
     <Header {nav} {btn} {language} /> 

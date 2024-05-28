@@ -1,47 +1,86 @@
-# Astro Starter Kit: Minimal
+
+## 🧞 Commands
 
 ```sh
 npm create astro@latest -- --template minimal
+npm install sass
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+##  Relative Paths, Copywriting & URLS
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+` To Edit, Update or Delete the copywrite or urls you'll need to modify the info in the following files:`
+
+* URLS & Relative Paths info: `src/data/links.js`
+* Copywrite [EN/ES] info: `src/data/i18n.js`
+
+## Translations
+
+In order to add a new translation you'll need to add the copywriting following the default format at `src/data/i18n.js` and update the attributes for `getStaticPaths()` function on `src/pages/[lang]/index.js`
+
+```js
+export function getStaticPaths () { 
+  return [
+    {params: {lang: 'en'}},
+    {params: {lang: 'es'}},
+  ];
+}
+```
+### How does it works?
+
+`getStaticPaths()` expects any of these attributes from the URL and it'll save it as a variable then another function will compare these variables with the `i18n` file attribute. In case it finds a coincidence it'll load the proper translation.
+
+Example: `website.com/ES/` will is a positive match with:
+
+```
+export const i18n = {
+  es: {}
+```
+
 
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
 
-```text
+`Every section of the home page is added as a component in /pages/[lang]/index.astro`
+`All copywrite is passed to those components and ca be editen in /data/i18n.js`
+
+```
 /
-├── public/
+├── public/images/
+│   └── slides/
+│   └── EN/
+│   └── ES/
+│
 ├── src/
+│   └── data/
+│   │   └── links.js
+│   │   └── i18n.js
+│   │
+│   └── layout/
+│   │   └── abyss.js
+│   │
+│   └── components/
+│   │   └── footer.astro
+│   │   └── gameplay.astro
+│   │   └── header.astro
+│   │   └── hero.astro
+│   │   └── links.astro
+│   │   └── lore.astro
+│   │   └── menu.astro
+│   │   └── newsletter.astro
+│   │   └── reviews.astro
+│   │   └── specs.astro
+│   │
 │   └── pages/
 │       └── index.astro
+│       └── 404.astro
+│       └── [lang]/
+│           └── index.astro
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Important Links:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Design Sample | Source Code |
+| --- | --- |
+| <a href="https://github.com/orientalArg/intotheabyss"><img height="25" src="https://camo.githubusercontent.com/6859b81bad9211632c09ba0ba5aff3ce23d87f38bd199a05cfdd67b70d8ef58e/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f6769746875622e737667" alt="a"/> </a>| <a href="https://github.com/orientalArg/intotheabyss"><img height="25" src="https://camo.githubusercontent.com/6859b81bad9211632c09ba0ba5aff3ce23d87f38bd199a05cfdd67b70d8ef58e/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f6769746875622e737667" alt="a"/></a> |
