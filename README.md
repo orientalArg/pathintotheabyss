@@ -5,12 +5,14 @@
 npm create astro@latest --template minimal
 npm install sass
 ```
+
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
 `Every section of the home page is added as a component in /pages/[lang]/index.astro`
+
 `All copywrite is passed to those components and ca be editen in /data/i18n.js`
+
+https://github.com/orientalArg/pathintotheabyss/upload
 
 ```
 /
@@ -25,7 +27,7 @@ Inside of your Astro project, you'll see the following folders and files:
 │   │   └── i18n.js
 │   │
 │   └── layout/
-│   │   └── abyss.js
+│   │   └── mainLayout.astro
 │   │
 │   └── components/
 │   │   └── footer.astro
@@ -49,7 +51,7 @@ Inside of your Astro project, you'll see the following folders and files:
 
 ##  Relative Paths, Copywriting & URLS
 
-` To Add, Update or Delete the copywrite or urls you'll need to modify the info in the following files:`
+` To Add, Update or Delete copywriting or urls you'll need to modify the info in the following files:`
 
 * URLS & Relative Paths info: `src/data/links.js`
 * Copywrite [EN/ES] info: `src/data/i18n.js`
@@ -66,7 +68,7 @@ export function getStaticPaths () {
   ];
 }
 ```
-### How does it works?
+### How does this work?
 
 `getStaticPaths()` will receive these attributes from the URL and it'll save it as a variable `const [lang]`. Then another function will compare these variable with an attribute in `src/data/i18n.js`. In case it finds a coincidence it'll load the proper translation and past the data as a parameter to the components.
 
