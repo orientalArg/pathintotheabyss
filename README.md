@@ -12,8 +12,6 @@ npm install sass
 
 `All copywrite is passed to those components and ca be editen in /data/i18n.js`
 
-https://github.com/orientalArg/pathintotheabyss/upload
-
 ```
 /
 ├── public/images/
