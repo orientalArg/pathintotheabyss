@@ -2,41 +2,9 @@
 ## 🧞 Commands
 
 ```sh
-npm create astro@latest -- --template minimal
+npm create astro@latest --template minimal
 npm install sass
 ```
-
-##  Relative Paths, Copywriting & URLS
-
-` To Edit, Update or Delete the copywrite or urls you'll need to modify the info in the following files:`
-
-* URLS & Relative Paths info: `src/data/links.js`
-* Copywrite [EN/ES] info: `src/data/i18n.js`
-
-## Translations
-
-In order to add a new translation you'll need to add the copywriting following the default format at `src/data/i18n.js` and update the attributes for `getStaticPaths()` function on `src/pages/[lang]/index.js`
-
-```js
-export function getStaticPaths () { 
-  return [
-    {params: {lang: 'en'}},
-    {params: {lang: 'es'}},
-  ];
-}
-```
-### How does it works?
-
-`getStaticPaths()` expects any of these attributes from the URL and it'll save it as a variable then another function will compare these variables with the `i18n` file attribute. In case it finds a coincidence it'll load the proper translation.
-
-Example: `website.com/ES/` will is a positive match with:
-
-```
-export const i18n = {
-  es: {}
-```
-
-
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
@@ -78,6 +46,40 @@ Inside of your Astro project, you'll see the following folders and files:
 │           └── index.astro
 └── package.json
 ```
+
+##  Relative Paths, Copywriting & URLS
+
+` To Add, Update or Delete the copywrite or urls you'll need to modify the info in the following files:`
+
+* URLS & Relative Paths info: `src/data/links.js`
+* Copywrite [EN/ES] info: `src/data/i18n.js`
+
+## Translations
+
+In order to add a new translation you'll need to add the copywriting following the default format at `src/data/i18n.js` and update the attributes for `getStaticPaths()` function on `src/pages/[lang]/index.js`
+
+```js
+export function getStaticPaths () { 
+  return [
+    {params: {lang: 'en'}},
+    {params: {lang: 'es'}},
+  ];
+}
+```
+### How does it works?
+
+`getStaticPaths()` will receive these attributes from the URL and it'll save it as a variable `const [lang]`. Then another function will compare these variable with an attribute in `src/data/i18n.js`. In case it finds a coincidence it'll load the proper translation and past the data as a parameter to the components.
+
+Example: `website.com/ES/` is a positive match for `es` attribute at `i18n.js` file:
+
+```
+export const ui = {
+  es: {name:'el camino hacia el abismo'}
+  en: {name:'the path into the abyss'}
+}
+```
+
+Note: In case the url doesn't exist it'll return the default homepage in english
 
 ## Important Links:
 
