@@ -49,7 +49,7 @@ export const ui = {
         art:'art',
       },
     },
-    preorder: 'Preorder is available via Steam',/* Epic Games Store, Microsoft Store, GOG as well as on Xbox Series X and Xbox Series S.*/
+    preorder: 'Preorder is available via Steam, Epic Games Store, Microsoft Store, GOG as well as on Xbox Series X and Xbox Series S.',
     gameplay: {
       title: 'gameplay',
       intro:'THE PATH INTO THE ABYSS is a next-gen Horror Survival Shooter based on the dark horror universe created by filmmaker MATÍAS RISPAU, The Path Into The Abyss is set to deliver a unique action experience of survival in the mysterious abyss that surrounds the City Of Buenos Aires.',
