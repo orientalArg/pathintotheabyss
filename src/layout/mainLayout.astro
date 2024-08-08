@@ -4,37 +4,37 @@ const {title, desc, logo, OGimage} = Astro.props;
 
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href={logo} />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href={logo} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
     <meta name="description" content={desc}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Karantina:wght@300;400;700&display=swap" rel="stylesheet">  
 
-		<meta property="og:url" content={Astro.url.pathname} />
-		<meta property="og:type" content="image/png" />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={desc}>
-		<meta property="og:image" content={OGimage} />
-		<meta property="og:image:alt" content="An image of me, my stack [ASTRO, REACT, SCSS] and my username across social media" />
-		<meta property="og:site_name" content="https://joaquinreynoso.vercel.app" />
-		<meta property="og:locale" content="en_AR" />
-		<meta name="twitter:card" content="summary_large_image">
-		<meta property="twitter:domain" content="joaquinreynoso.vercel.app">
-		<meta property="twitter:url" content={Astro.url.pathname}>
-		<meta name="twitter:title" content={title}>
-		<meta name="twitter:description" content={desc}>
-		<meta name="twitter:image" content={OGimage} >
-		<link rel="icon" type="image/svg+xml" href="/images/flag.svg" />
+    <meta property="og:url" content={Astro.url.pathname} />
+    <meta property="og:type" content="image/png" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={desc}>
+    <meta property="og:image" content={OGimage} />
+    <meta property="og:image:alt" content="An image of me, my stack [ASTRO, REACT, SCSS] and my username across social media" />
+    <meta property="og:site_name" content="https://joaquinreynoso.vercel.app" />
+    <meta property="og:locale" content="en_AR" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="joaquinreynoso.vercel.app">
+    <meta property="twitter:url" content={Astro.url.pathname}>
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={desc}>
+    <meta name="twitter:image" content={OGimage} >
+    <link rel="icon" type="image/svg+xml" href="/images/flag.svg" />
   </head>
 
-	<body>
+  <body>
     <slot />
-	</body>
+  </body>
 
 </html>
 
@@ -48,7 +48,6 @@ const {title, desc, logo, OGimage} = Astro.props;
   }
   :root, html {
     background: black;
-    
     --white:#e0e0e0;
     --black:#000;
     --grey:#d9d9d9;

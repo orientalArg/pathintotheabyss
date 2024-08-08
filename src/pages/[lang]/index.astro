@@ -28,21 +28,7 @@ function isLang() {
   return;
 }
 
-const {
-  game,
-  language,
-  btn,
-  image,
-  menu,
-  preorder,
-  nav,
-  gameplay,
-  reviews,
-  specs,
-  newsletter,
-  lore,
-  footer,
-} = isLang();
+const { game, language, btn, image, menu, preorder, nav, gameplay, reviews, specs, newsletter, lore, footer, } = isLang();
 
 // head meta tags
 let desc = gameplay.intro;
@@ -51,38 +37,20 @@ let logo = '/images/logo.svg';
 let OGimage = image.og; //og:thumbnail that appears when shaing on social media
 ---
 
-<MainLayout
-  {title}
-  {desc}
-  {logo}
-  {OGimage}
->
-  <LangButton />
+<MainLayout {title} {desc} {logo} {OGimage} >
 
-  <Menu
-    {menu}
-    {image}
-    {data}
-  >
+  <Menu {menu} {image} {data} >
+    <LangButton />
     <Newsletter {newsletter} />
   </Menu>
 
-  <Hero
-    {game}
-    {btn}
-    {preorder}
-    {data}
-  >
-    <Header
-      {nav}
-      {btn}
-      {language}
-    />
+  <Hero {game} {btn} {preorder} {data} >
+    <Header {nav} {btn} {language} />
   </Hero>
 
   <Links {data} />
 
-  <Gameplay {gameplay} />
+  <Gameplay {gameplay}/>
 
   <Reviews {reviews} />
 
@@ -92,23 +60,12 @@ let OGimage = image.og; //og:thumbnail that appears when shaing on social media
     <Newsletter {newsletter} />
   </div>
 
-  <Lore
-    {lore}
-    {data}
-  >
+  <Lore {lore} {data} >
     <Links {data} />
   </Lore>
 
-  <Footer
-    {game}
-    {footer}
-    {data}
-  >
-    <Header
-      {nav}
-      {btn}
-      {language}
-    />
+  <Footer {game} {footer} {data} >
+    <Header {nav} {btn} {language} />
   </Footer>
 
   <script>
