@@ -13,7 +13,7 @@ const {features, intro, title} = gameplay;
     </ul>
   </div>
   <div class="video">
-    <iframe id="iframe" width="560" height="315" src="https://www.youtube.com/embed/9s-5tR0fGfM?autoplay=1" title={intro} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe id="iframe" width="560" height="315" src="https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1&autoplay=1" title={intro} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 </section>
 
@@ -21,6 +21,7 @@ const {features, intro, title} = gameplay;
   let play = document.querySelector("#play_video")!;
   let iframe = document.getElementById("iframe")!;
 
+  window.addEventListener('load', foo);
   play.addEventListener("click", foo);
 
   function foo() {
