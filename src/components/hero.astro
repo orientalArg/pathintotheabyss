@@ -1,4 +1,5 @@
 ---
+const url = Astro.url.pathname;
 const {game, btn, preorder, data} = Astro.props
 const {platforms, slides_all} = data;
 ---
@@ -14,7 +15,11 @@ const {platforms, slides_all} = data;
       {game.name.map(a => <h1 class="stroke">{a.p}</h1>)}
     </div>
     <div class="buttons">
-      <button class="learn" >{btn.learn}</button>
+      <button class="learn" >
+        <a href={url + "#abyss"} rel="noopener noreferrer">
+          {btn.learn}
+        </a>
+      </button>
       <a href="https://store.steampowered.com/app/3000460/The_Path_Into_The_Abyss/" class="reserve" >{btn.reserve}<img src="/images/icons/steam.svg" alt=""></a>
     </div>
   </div>
