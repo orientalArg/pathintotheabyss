@@ -40,21 +40,13 @@ const {platforms, slides_all} = data;
   let current = -1;
   let slides = document.getElementsByClassName("slide");
 
-  carousel();
+  window.addEventListener("load", carousel)
+
   function carousel() {
-    if(current <= slides.length){
-      current++;
-
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].classList.remove("active");  
-      }
-
-      if (current >= slides.length) {current = 0}
-
-      slides[current].classList.toggle("active")
-
-      setTimeout(carousel, 10000)
-    }
+    current = (current + 1) % slides.length;
+    Array.from(slides).forEach(slide => slide.classList.remove('active'));
+    slides[current].classList.add('active');
+    setTimeout(carousel, 10000);
   }
 </script>
 
@@ -166,6 +158,11 @@ const {platforms, slides_all} = data;
           margin-left: auto;
         }
       }
+    }
+  }
+  @media (max-width: 600px) {
+    .hero .title_wrapper .buttons {
+      .learn, .reserve { padding: 2vw 1.2vw; }
     }
   }
 </style>
