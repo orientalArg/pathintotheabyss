@@ -13,7 +13,7 @@ const {features, intro, title} = gameplay;
     </ul>
   </div>
   <div class="video">
-    <iframe id="iframe" width="560" height="315" src="https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1&autoplay=0" title={intro} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe id="iframe" width="560" height="315" src="https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1?vq=hd1080&autoplay=0" title={intro} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 </section>
 
@@ -30,10 +30,10 @@ const {features, intro, title} = gameplay;
   function togglePlayer() {
     iframe.classList.toggle("float")
     togglePlay.classList.toggle("pause")
-    if(iframe.getAttribute("src") == "https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1&autoplay=0") {
-      return iframe.setAttribute("src", "https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1&autoplay=1")
+    if(iframe.getAttribute("src") == "https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1?vq=hd1080&autoplay=0") {
+      return iframe.setAttribute("src", "https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1?vq=hd1080&autoplay=1")
     } else {
-      return iframe.setAttribute("src", "https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1&autoplay=0")
+      return iframe.setAttribute("src", "https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1?vq=hd1080&autoplay=0")
     }
 
   }
