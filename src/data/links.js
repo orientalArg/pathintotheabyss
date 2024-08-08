@@ -1,20 +1,20 @@
 export const data = {
   platforms : [
-    /*{
+    {
       name : "microsoft store",
       url : "https://www.microsoft.com/es-ar/store/games/windows",
       image : "/images/icons/microsoft.svg",
-    },*/
+    },
     {
       name : "steam",
       url : "https://store.steampowered.com/app/3000460/The_Path_Into_The_Abyss/",
       image : "/images/icons/steam.svg",
     },
-    /*{
+    {
       name : "epic games",
       url : "https://store.epicgames.com/en-US/",
       image : "/images/icons/epic.svg",
-    },*/
+    },
   ],
   social : [
     {
@@ -81,20 +81,12 @@ export const data = {
     },
   ],
   slides_all : [
-    {url: "/images/slides/obelisk.png"},
-    {url: "/images/slides/city_red.png"},
-    {url: "/images/slides/national_library.png"},
-    {url: "/images/slides/train_outside.png"},
-    {url: "/images/slides/train_subterrain.png"},
-    {url: "/images/slides/forest.png"},
     {url: "/images/slides/stone_figure.png"},
+    {url: "/images/slides/forest.png"},
     {url: "/images/slides/character.png"},
-  ],
-  slides_hero : [
-    {url: "/images/slides/obelisk.png"},
+    {url: "/images/slides/train_subterrain.png"},
+    {url: "/images/slides/train_outside.png"},
     {url: "/images/slides/city_red.png"},
     {url: "/images/slides/national_library.png"},
-    {url: "/images/slides/forest.png"},
-    {url: "/images/slides/stone_figure.png"},
   ],
 }

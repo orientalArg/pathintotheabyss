@@ -27,8 +27,8 @@ export const ui = {
       language: 'language',
       learn: 'learn more',
       reserve: 'reserve now',
-      play: 'play',
-      pause: 'pause',
+      play: 'play video',
+      pause: 'pause video',
     },
     menu:{
       reach:'BUSINESS CONTACT',
@@ -165,8 +165,8 @@ export const ui = {
       language: 'idioma',
       learn: 'aprender más',
       reserve: 'reservar ahora',
-      play: 'reproducir',
-      pause: 'pausar',
+      play: 'reproducir video',
+      pause: 'pausar video',
     },
     menu:{
       reach:'CONTACTO DE NEGOCIO',

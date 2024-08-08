@@ -19,13 +19,16 @@ const {reviews} = Astro.props;
 </section>
 
 <script>
-  let current = 0;
-  
-  let navButtons = document.getElementsByClassName("btn_nav");
-  navButtons[current].classList.add("active_nav");
-
+  let current = 1; 
   let reviews = document.getElementsByClassName("review");
+  let navButtons = document.getElementsByClassName("btn_nav");
+
+  navButtons[current].classList.add("active_nav");
   reviews[current].classList.add("active_review")
+
+  document.querySelectorAll('.btn_nav').forEach((nav, index) => {
+    nav.addEventListener('click', () => { if (current !== index) { changeReview(index);}})
+  })
 
   function changeReview(n) {
     reviews[current].classList.toggle("active_review")
@@ -36,10 +39,6 @@ const {reviews} = Astro.props;
 
     current = n;
   }
-
-  document.querySelectorAll('.btn_nav').forEach((nav, index) => {
-    nav.addEventListener('click', () => { if (current !== index) { changeReview(index);}})
-  })
 </script>
 
 <style lang="scss">

@@ -1,49 +1,48 @@
 ---
-import {ui} from '../../data/i18n.js'
-import {data} from '../../data/links.js'
+import { ui } from '../../data/i18n.js';
+import { data } from '../../data/links.js';
 
-import MainLayout from '../../layout/mainLayout.astro'
-import Menu from '../../components/menu.astro'
-import Header from '../../components/header.astro'
-import Hero from '../../components/hero.astro'
-import Links from '../../components/links.astro'
-import Reviews from '../../components/reviews.astro'
-import Newsletter from '../../components/newsletter.astro'
-import Gameplay from '../../components/gameplay.astro'
-import Specs from '../../components/specs.astro'
-import Lore from '../../components/lore.astro'
-import Footer from '../../components/footer.astro'
+import MainLayout from '../../layout/mainLayout.astro';
+import Menu from '../../components/menu.astro';
+import Header from '../../components/header.astro';
+import Hero from '../../components/hero.astro';
+import Links from '../../components/links.astro';
+import Reviews from '../../components/reviews.astro';
+import Newsletter from '../../components/newsletter.astro';
+import Gameplay from '../../components/gameplay.astro';
+import Specs from '../../components/specs.astro';
+import Lore from '../../components/lore.astro';
+import Footer from '../../components/footer.astro';
+import LangButton from '../../components/langButton.astro';
 
-export function getStaticPaths () { 
-  return [
-    {params: {lang: 'en'}},
-    {params: {lang: 'es'}},
-  ];
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'es' } }];
 }
 
-const {lang} = Astro.params;
+const { lang } = Astro.params;
 
 function isLang() {
   for (const [key, value] of Object.entries(ui)) {
-    if(key === lang)
-    return value;
+    if (key === lang) return value;
   }
   return;
 }
 
-const {game,language,btn,image,menu,preorder,nav,gameplay,reviews,specs,newsletter,lore,footer} = isLang();
+const { game, language, btn, image, menu, preorder, nav, gameplay, reviews, specs, newsletter, lore, footer, } = isLang();
 
 // head meta tags
 let desc = gameplay.intro;
 let title = game.title;
-let logo = "/images/logo.svg";
+let logo = '/images/logo.svg';
 let OGimage = image.og; //og:thumbnail that appears when shaing on social media
 ---
+
 <MainLayout {title} {desc} {logo} {OGimage} >
 
   <Menu {menu} {image} {data} >
+    <LangButton />
     <Newsletter {newsletter} />
-  </Menu> 
+  </Menu>
 
   <Hero {game} {btn} {preorder} {data} >
     <Header {nav} {btn} {language} />
@@ -51,34 +50,37 @@ let OGimage = image.og; //og:thumbnail that appears when shaing on social media
 
   <Links {data} />
 
-  <Gameplay {gameplay} />
+  <Gameplay {gameplay}/>
 
   <Reviews {reviews} />
 
   <Specs {specs} />
 
-  <div id="newsletter">
-    <Newsletter {newsletter} /> 
+  <div id='newsletter'>
+    <Newsletter {newsletter} />
   </div>
 
   <Lore {lore} {data} >
     <Links {data} />
   </Lore>
 
-  <Footer {game} {footer} {data} > 
-    <Header {nav} {btn} {language} /> 
+  <Footer {game} {footer} {data} >
+    <Header {nav} {btn} {language} />
   </Footer>
 
   <script>
     const wrapper = document.getElementById('menu_wrapper');
-    const btnOpen =  document.querySelectorAll('#menu_open');
-    const btnClose =  document.getElementById('menu_close');
+    const btnOpen = document.querySelectorAll('#menu_open');
+    const btnClose = document.getElementById('menu_close');
 
-    btnClose!.onclick = () => {return wrapper!.style.display = "none"}
+    btnClose!.onclick = () => {
+      return (wrapper!.style.display = 'none');
+    };
 
     for (let i = 0; i < btnOpen.length; i++) {
-      btnOpen[i].addEventListener('click',() => {wrapper!.style.display = "block";})
+      btnOpen[i].addEventListener('click', () => {
+        wrapper!.style.display = 'block';
+      });
     }
   </script>
-  
 </MainLayout>

@@ -1,0 +1,50 @@
+<button class="btn_lang" >
+    <img src="/images/icons/globe.svg" alt="">
+    <div class="column">
+      <a href="/es/" >ES</a>
+      <a href="/en/" >EN</a>
+    </div>
+  </button>
+
+<style lang="scss">
+.btn_lang {
+  z-index: 15;
+  bottom: 15%;
+  right: 1em;
+  border: none;
+  padding: 1em;
+  display: none;
+  position: fixed;
+  justify-self: center;
+  flex-direction: column-reverse;
+  &:hover .column {display: flex;}
+  &:focus .column {display: flex;}
+  img {
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 0 5px 20px 0 var(--violet);
+  }
+  .column {
+    width: 100%;
+    bottom: 100%;
+    display: none;
+    padding: 1em 0;
+    align-items: end;
+    position: absolute;
+    flex-direction: column;
+    a {
+      width: 100%;
+      padding: 1em 0;
+      background: var(--black);
+      animation: slide_in_right 300ms ease-out;
+      border: 1px var(--color-secondary) solid;
+      &:hover {color:var(--color-primary);background: var(--violet);}
+    }
+  }
+}
+@media (max-width:850px) {
+.btn_lang {
+  display: flex
+}  
+}
+</style>

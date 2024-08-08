@@ -10,7 +10,7 @@ const {menu} = btn;
     <p>brainstorming</p>
     <p>films</p>  
   </div>
-  <div class="content">
+  <div class="content_wrapper">
     <nav class="nav">
       <a href={url + "devlog"} >{devLog}</a>
       <span>/</span>
@@ -55,13 +55,15 @@ const {menu} = btn;
         font-family: 'Karantina', system-ui, -apple-system, Roboto;
       }
     }
-    .content {
+    .content_wrapper {
       width: 100%;
       display: flex;
       padding-left: 4vw;
       align-items: center;
       justify-content: space-between;
-      .nav a { margin: 0 1em;}
+      .nav a {
+        margin: 0 1em;
+      }
       .buttons {
         display: flex;
         align-items: center;
@@ -94,14 +96,15 @@ const {menu} = btn;
       }
     }
   }
-  @media (max-width:900px) {
-    header .content {
+  @media (max-width:850px) {
+    header .content_wrapper {
       padding-left: 0;
       align-items: baseline;
       nav { display: none;}
       .buttons {
+        margin-top: 1em;
         margin-left: auto;
-        .btn_lang p { display: none;}
+        .btn_lang { display: none;}
       }
     }
   }

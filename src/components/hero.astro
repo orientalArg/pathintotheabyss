@@ -1,14 +1,12 @@
 ---
 const {game, btn, preorder, data} = Astro.props
-const {platforms, slides_hero} = data;
+const {platforms, slides_all} = data;
 ---
 <section class="hero">
-
-  <p hidden>header slot</p>
-  <slot />
-
+  <slot/> <p hidden>header slot</p>
+  
   <div class="slider">
-    {slides_hero.map(a => <img class="bg_slide" src={a.url} alt="a"/>)}
+    {slides_all.map(a => <img class="slide" src={a.url} alt="a"/>)}
   </div>
 
   <div class="title_wrapper">
@@ -22,47 +20,33 @@ const {platforms, slides_hero} = data;
   </div>
 
   <div class="platforms">
-      <small class="preorder">{preorder}</small>
+    <small class="preorder">{preorder}</small>
     <div class="buttons">
-      {
-        platforms.map((a) =>
+      {platforms.map((a) =>
         <a href={a.url}>
-          <img src={a.image} alt="" srcset="" title={a.name}>
-        </a>)
-      }
-      <button class="play" id="playSlider">
-        <p>{btn.play}</p>
-        <img src="/icons/play.svg" alt="">
-      </button>
-      <button class="pause" id="pauseSlider">
-        <p>{btn.pause}</p>
-        <img src="/icons/play.svg" alt="">
-      </button>
+          <img src={a.image} alt={a.name} title={a.name}>
+        </a>
+      )}
+      <div class="play_video play_pause" id="play_video">
+        <p class="play">{btn.play}</p>
+        <p class="pause">{btn.pause}</p>
+        <img src="/images/icons/play.svg" alt="">
+      </div>
     </div>
   </div>
-
 </section>
 
 <script>
   let current = -1;
-  let slides = document.getElementsByClassName("bg_slide");
-  
-  carousel();
-  
+  let slides = document.getElementsByClassName("slide");
+
+  window.addEventListener("load", carousel)
+
   function carousel() {
-    if(current < slides.length){
-      current++;
-      
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].classList.remove("active");  
-      }
-      
-      if (current >= slides.length) {current = 0}
-      
-      slides[current].classList.toggle("active")
-      
-      setTimeout(carousel, 10000)
-    }
+    current = (current + 1) % slides.length;
+    Array.from(slides).forEach(slide => slide.classList.remove('active'));
+    slides[current].classList.add('active');
+    setTimeout(carousel, 10000);
   }
 </script>
 
@@ -71,10 +55,9 @@ const {platforms, slides_hero} = data;
     gap: 5vw;
     min-height: 90vh;
     position: relative;
-    
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
+    flex-direction: column;
+    display: flex;
     .slider {
       top: 0;
       left: 0;
@@ -87,8 +70,8 @@ const {platforms, slides_hero} = data;
       display: flex;
       justify-content: center;
       img {
-        width: auto;
-        height: 100%;
+        min-height: 100%;
+        min-width: 100%;
         display: none;
         animation: slide_in_bottom ease-out 50ms;
       }
@@ -128,28 +111,58 @@ const {platforms, slides_hero} = data;
       width: 100%;
       display: flex;
       justify-content: space-between;
-      .preorder {max-width: 400px;}
+      .preorder {
+        max-width: 400px; 
+      }
       .buttons {
         gap: 1vw;
         display: flex;
         align-items: center;
-        .play, .pause {display: none;}
+        .play_video {
+          gap: 1em;
+          padding: 1em;
+          color: grey;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          text-transform: uppercase;
+          font-weight: 600;
+          .play {display: block;}
+          .pause {display: none;}
+          &:hover {text-decoration: underline dashed var(--violet);}
+        }
+        .pause {
+          .play {display: none;}
+          .pause {display: block;}
+        }
       }
     }
   }
   @media (max-width:1000px) {
     .hero {
       padding: 15px 25px;
-      .middle .buttons button {
-        padding: 2vw;
+      .slider img {
+        width: auto;
+        height: 100%;
+        min-width: auto;
       }
-      .bottom {
+      .title_wrapper .buttons {
+        .learn, .reserve {
+          padding: 2vw;
+        }
+      }
+      .platforms {
         gap: 2em;
         flex-direction: column;
-        .buttons button {
+        .buttons .play_video {
           margin-left: auto;
         }
       }
+    }
+  }
+  @media (max-width: 600px) {
+    .hero .title_wrapper .buttons {
+      .learn, .reserve { padding: 2vw 1.2vw; }
     }
   }
 </style>
