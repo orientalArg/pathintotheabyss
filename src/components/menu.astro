@@ -1,4 +1,6 @@
 ---
+import LangButton from '../components/langButton.astro';
+
 const url = Astro.url.pathname;
 const {menu, image, data} = Astro.props;
 
@@ -10,6 +12,7 @@ const {contact, world, devlog, art} = pages;
 
 ---
 <section class="wrapper" id="menu_wrapper">
+  <LangButton />
   <button class="close" id="menu_close">x</button>
   <div class="content">
     <ul class="column">

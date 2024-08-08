@@ -13,7 +13,6 @@ import Gameplay from '../../components/gameplay.astro';
 import Specs from '../../components/specs.astro';
 import Lore from '../../components/lore.astro';
 import Footer from '../../components/footer.astro';
-import LangButton from '../../components/langButton.astro';
 
 export function getStaticPaths() {
   return [{ params: { lang: 'en' } }, { params: { lang: 'es' } }];
@@ -40,7 +39,6 @@ let OGimage = image.og; //og:thumbnail that appears when shaing on social media
 <MainLayout {title} {desc} {logo} {OGimage} >
 
   <Menu {menu} {image} {data} >
-    <LangButton />
     <Newsletter {newsletter} />
   </Menu>
 
