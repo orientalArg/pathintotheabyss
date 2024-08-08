@@ -13,20 +13,29 @@ const {features, intro, title} = gameplay;
     </ul>
   </div>
   <div class="video">
-    <iframe id="iframe" width="560" height="315" src="https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1&autoplay=1" title={intro} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe id="iframe" width="560" height="315" src="https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1&autoplay=0" title={intro} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 </section>
 
 <script>
-  let play = document.querySelector("#play_video")!;
+  let togglePlay = document.querySelector("#play_video")!;
   let iframe = document.getElementById("iframe")!;
 
-  window.addEventListener('load', foo);
-  play.addEventListener("click", foo);
+  if(screen.width > 900) {
+    window.addEventListener('load', togglePlayer);
+  }
 
-  function foo() {
+  togglePlay.addEventListener("click", togglePlayer);
+
+  function togglePlayer() {
     iframe.classList.toggle("float")
-    play.classList.toggle("pause")
+    togglePlay.classList.toggle("pause")
+    if(iframe.getAttribute("src") == "https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1&autoplay=0") {
+      return iframe.setAttribute("src", "https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1&autoplay=1")
+    } else {
+      return iframe.setAttribute("src", "https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1&autoplay=0")
+    }
+
   }
 </script>
 
@@ -42,11 +51,12 @@ const {features, intro, title} = gameplay;
     padding: 10px;
     @media (max-width: 600px) {
       max-height: 30vh;
-      max-width: 100%;
+      max-width: 100;
     }
     @media (max-width: 900px) {
       right: 0;
       bottom: 0;
+      max-height: 40vh;
     }
   }
   .gameplay {
