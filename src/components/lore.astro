@@ -1,6 +1,12 @@
 ---
+import {Image} from 'astro:assets'
+
 const {lore, data} = Astro.props;
 const {slides_all} = data;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../slides/*.{jpeg,jpg,png,gif}",
+);
 ---
 <section class="abyss" id="abyss">
   <h1 class="stroke _title">{lore.title}</h1>
@@ -10,7 +16,13 @@ const {slides_all} = data;
     </div>
     <div class="grid">
       <p hidden> visible from 1100px width </p>
-      {slides_all.slice(0, 4).map((a) => <img src={a.url} alt="" />)}
+      {slides_all.slice(0, 4).map(image => <Image
+        src={images[image.url]()}
+        alt={image}
+        widths={[240, 540, 720, image.width]}
+        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1366) 720, ${image.width}px`}
+        loading="lazy"
+      />)}
     </div>
     <div class="slider_wrapper">
       <p hidden> visible up to 1100px width </p>
@@ -19,7 +31,13 @@ const {slides_all} = data;
         <button btn-next ><img src="/images/icons/next.svg" alt="" srcset=""></button>
       </div>
       <div class="slider" id="slider">
-        {slides_all.map((a) => <img class="slide_abyss" src={a.url} alt="" />)}
+        {slides_all.map(image => <Image
+          class="slide_abyss" src={images[image.url]()}
+          alt={image}
+          widths={[240, 540, 720, image.width]}
+          sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1366) 720, ${image.width}px`}
+          loading="lazy"
+        />)}
       </div>
     </div>
   </div>
