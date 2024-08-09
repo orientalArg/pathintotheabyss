@@ -1,4 +1,4 @@
----
+  ---
 const {gameplay, btn} = Astro.props;
 const {features, intro, title} = gameplay;
 ---
@@ -14,12 +14,17 @@ const {features, intro, title} = gameplay;
   </div>
   <div class="video">
     <div class="iframe_wrapper" id="iframe_wrapper">
-      <div class="play_video play_pause" id="play_video">
-        <p class="play">{btn.play}</p>
-        <p class="pause">{btn.pause}</p>
-        <img src="/images/icons/play.svg" alt="">
+      <div class="play_video" id="play_video">
+        <span class="play">
+          <p>{btn.play}</p>
+          <img src="/images/icons/play.svg" alt="">
+        </span>
+        <span class="pause">
+          <p>{btn.pause}</p>
+          <img src="/images/icons/pause.svg" alt="">
+        </span>
       </div>
-      <iframe id="iframe" width="560" height="315" src="https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1?vq=hd1080&autoplay=0" title={intro} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <iframe id="iframe" width="560" height="315" src="https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1?vq=hd1080&autoplay=0" title={intro} frameborder="0" allow=" picture-in-picture; autoplay;" allowfullscreen></iframe>
     </div>
   </div>
 </section>
@@ -35,14 +40,11 @@ const {features, intro, title} = gameplay;
 
   togglePlay.forEach((btn) => btn.addEventListener("click", togglePlayer))
 
-  //togglePlay.addEventListener("click", togglePlayer);
-
   function togglePlayer() {
     wrapper.classList.toggle("float")
 
-    togglePlay.forEach((btn) => btn.classList.toggle("pause"))
+    togglePlay.forEach((btn) => btn.classList.toggle("toggle_btn"))
 
-    //togglePlay.classList.toggle("pause")
     if(iframe.getAttribute("src") == "https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1?vq=hd1080&autoplay=0") {
       return iframe.setAttribute("src", "https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1?vq=hd1080&autoplay=1")
     } else {
@@ -55,15 +57,12 @@ const {features, intro, title} = gameplay;
   .float {
     right: 0;
     bottom: 2em;
-    position: fixed;
-    max-width: 600px;
-    max-height: 350px;
     width: 100%;
     height: 100%;
     padding: 10px;
-    button {
-      display: block;
-    }
+    position: fixed;
+    max-width: 600px;
+    max-height: 350px;
     @media (max-width: 600px) {
       max-width: 100;
       max-height: 30vh;
@@ -132,26 +131,27 @@ const {features, intro, title} = gameplay;
       .iframe_wrapper {
         height: 100%;
         .play_video {
+          bottom: 10px;
+          right: 10px;
+          z-index: 20;
+          position: absolute;
           padding: 1em;
           color: grey;
           cursor: pointer;
           font-weight: 600;
           text-transform: uppercase;
-          background-color: var(--violet);
-          align-items: center;
-          display: flex;
-          position: absolute;
-          z-index: 20;
-          right: 10px;
-          top: 10px;
+          background-color: var(--black);
           gap: 1em;
-          .play {display: block;}
+          display: flex;
+          align-items: center;
+          span { gap:1em; align-items: center }
+          .play {display: flex;}
           .pause {display: none;}
-          &:hover {text-decoration: underline dashed var(--violet);}
+          &:hover {background-color: var(--violet);}
         }
-        .pause {
+        .toggle_btn {
           .play {display: none;}
-          .pause {display: block;}
+          .pause {display: flex;}
         }
         iframe {
           width :100%;
@@ -177,6 +177,9 @@ const {features, intro, title} = gameplay;
         width: 100%;
         margin: 0 auto;
         max-width: 750px;
+        .iframe_wrapper .play_video span p {
+          display: none;
+        }
       }
     }
   }

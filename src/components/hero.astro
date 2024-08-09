@@ -32,10 +32,15 @@ const {platforms, slides_all} = data;
           <img src={a.image} alt={a.name} title={a.name}>
         </a>
       )}
-      <div class="play_video play_pause" id="play_video">
-        <p class="play">{btn.play}</p>
-        <p class="pause">{btn.pause}</p>
-        <img src="/images/icons/play.svg" alt="">
+      <div class="play_video" id="play_video">
+        <span class="play">
+          <p>{btn.play}</p>
+          <img src="/images/icons/play.svg" alt="">
+        </span>
+        <span class="pause">
+          <p>{btn.pause}</p>
+          <img src="/images/icons/pause.svg" alt="">
+        </span>
       </div>
     </div>
   </div>
@@ -124,21 +129,24 @@ const {platforms, slides_all} = data;
         display: flex;
         align-items: center;
         .play_video {
-          gap: 1em;
           padding: 1em;
           color: grey;
           cursor: pointer;
+          font-weight: 600;
+          text-transform: uppercase;
+          gap: 1em;
           display: flex;
           align-items: center;
-          text-transform: uppercase;
-          font-weight: 600;
-          .play {display: block;}
+          span { gap:1em; align-items: center }
+          .play {display: flex;}
           .pause {display: none;}
-          &:hover {text-decoration: underline dashed var(--violet);}
+          &:hover {
+            background-color: var(--transparent-violet);
+          }
         }
-        .pause {
+        .toggle_btn {
           .play {display: none;}
-          .pause {display: block;}
+          .pause {display: flex;}
         }
       }
     }
