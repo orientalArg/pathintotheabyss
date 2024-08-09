@@ -10,7 +10,7 @@ const {slides_all} = data;
     </div>
     <div class="grid">
       <p hidden> visible from 1100px width </p>
-      {slides_all.slice(0, 4).map((a) => <img loading="lazy" src={a.url} alt="" />)}
+      {slides_all.slice(0, 4).map((a) => <img src={a.url} alt="" />)}
     </div>
     <div class="slider_wrapper">
       <p hidden> visible up to 1100px width </p>
@@ -19,7 +19,7 @@ const {slides_all} = data;
         <button btn-next ><img src="/images/icons/next.svg" alt="" srcset=""></button>
       </div>
       <div class="slider" id="slider">
-        {slides_all.map((a) => <img loading="lazy" class="slide" src={a.url} alt="" />)}
+        {slides_all.map((a) => <img class="slide_abyss" src={a.url} alt="" />)}
       </div>
     </div>
   </div>
@@ -30,7 +30,8 @@ const {slides_all} = data;
 
 <script>
   let current = 0;
-  let slides = document.getElementsByClassName("slide");
+  let slides = document.getElementsByClassName("slide_abyss");
+
   slides[0].classList.add("active")
 
   document.querySelector('[btn-prev]').addEventListener("click", () => changeSlide(current + 1));
@@ -91,7 +92,7 @@ const {slides_all} = data;
       .slider {
         width: 100%;
         display: flex;
-        .slide {
+        .slide_abyss {
           display: none;
           min-width: 100%;
           max-height: 499px;
