@@ -81,12 +81,12 @@ export const data = {
     },
   ],
   slides_all : [
-    {url: "/images/slides/stone_figure.png"},
-    {url: "/images/slides/forest.png"},
-    {url: "/images/slides/character.png"},
-    {url: "/images/slides/train_subterrain.png"},
-    {url: "/images/slides/train_outside.png"},
-    {url: "/images/slides/city_red.png"},
-    {url: "/images/slides/national_library.png"},
-  ],
+    {url: "../slides/stone_figure.png"},
+    {url: "../slides/forest.png"},
+    {url: "../slides/character.png"},
+    {url: "../slides/train_subterrain.png"},
+    {url: "../slides/train_outside.png"},
+    {url: "../slides/city_red.png"},
+    {url: "../slides/national_library.png"},
+  ]
 }
