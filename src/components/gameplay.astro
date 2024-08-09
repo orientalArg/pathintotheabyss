@@ -35,13 +35,12 @@ const {features, intro, title} = gameplay;
     } else {
       return iframe.setAttribute("src", "https://www.youtube.com/embed/9s-5tR0fGfM?si=BW70FephbJCklA3d=1?vq=hd1080&autoplay=0")
     }
-
   }
 </script>
 
 <style lang="scss">
   .float {
-    right: 2em;
+    right: 0;
     bottom: 2em;
     position: fixed;
     max-width: 600px;
@@ -50,13 +49,20 @@ const {features, intro, title} = gameplay;
     height: 100%;
     padding: 10px;
     @media (max-width: 600px) {
-      max-height: 30vh;
+      top: 7vh;
       max-width: 100;
+      max-height: 30vh;
     }
-    @media (max-width: 900px) {
-      right: 0;
-      bottom: 0;
-      max-height: 40vh;
+    @media (min-width: 900px) {
+      right: 2em;
+      bottom: 20vh;
+      max-width: 600px;
+      max-height: 350px;
+    }
+    @media (min-width: 1440px) {
+      bottom: 22vh;
+      max-width: 700px;
+      max-height: 400px;
     }
   }
   .gameplay {
