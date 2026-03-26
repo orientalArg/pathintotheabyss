@@ -1,20 +1,27 @@
+<div align=center>
 
-## 🧞 Commands
+# THE PATH INTO THE ABYSS
 
-```sh
-npm create astro@latest --template minimal
-npm install sass
-```
-## 🚀 Project Structure
+  <a href="https://www.figma.com/community/file/1345111803067019836/game-website-ui-prototype-desktop-mobile-breakdown"><img alt="figma" src="https://img.shields.io/badge/figma%20→-design%20&%20prototype%20-white?style=for-the-badge&logo=figma&color=orangered"/></a>
 
-Inside of your Astro project, you'll see the following folders and files:
+  <img src="https://www.upwork.com/att/download/portfolio/persons/uid/1634152552807448576/profile/projects/files/de350929-e339-4ce8-918c-ec663dcfd7d8"/>
 
-`Every section of the home page is added as a component in /pages/[lang]/index.astro`
 
-`All copywrite is passed to those components and can be edited in /data/i18n.js`
+  <small>I created this Landing Page as a proposal for the a Video Game website called ”The Path Into The Abyss”. A videogame based on the universe created by filmmaker Matías Rispau.</small>
+</div>
 
-```
-/
+<div align="center">
+
+`made with`<br/>
+<img alt="Astro" src="https://img.shields.io/badge/Astro-090318?style=for-the-badge&logo=astro"/>
+<img alt="scss" src="https://img.shields.io/badge/scss-090318?style=for-the-badge&logo=sass"/>
+<img alt="Astro" src="https://img.shields.io/badge/figma-090318?style=for-the-badge&logoColor=orange&logo=figma"/>
+</div>
+
+```js
+🚀 Project Structure
+
+
 ├── public/images/
 │   └── slides/
 │   └── EN/
@@ -49,15 +56,21 @@ Inside of your Astro project, you'll see the following folders and files:
 ```
 
 ##  Relative Paths, Copywriting & URLS
-
-` To Add, Update or Delete copywriting or urls you'll need to modify the info in the following files:`
+<sub>To Add, Update or Delete copywriting or urls you'll need to modify the info in the following files:</sub>
 
 * URLS & Relative Paths info: `src/data/links.js`
 * Copywrite [EN/ES] info: `src/data/i18n.js`
 
-## Translations
+>[!NOTE]
+><sub>In case the url doesn't exist it'll return the default homepage in english.</sub>
 
-In order to add a new translation you'll need to create a new copywriting following the default format at `src/data/i18n.js` and update the attributes for `getStaticPaths()` function on `src/pages/[lang]/index.js`
+
+
+## Translations
+<sub>To add a new translation follow the next steps:</sub>
+
+* Create a new copywriting following the default format at `src/data/i18n.js`
+* Update the attributes for `getStaticPaths()` function on `src/pages/[lang]/index.js`
 
 ```js
 export function getStaticPaths () { 
@@ -67,23 +80,29 @@ export function getStaticPaths () {
   ];
 }
 ```
-### How does it works?
+>[!TIP]
+>HOW DOES IT WORK
 
-`getStaticPaths()` will receive these attributes from the URL and save them as a `const [lang]` variable. Another function will then compare the value of this variable with an attribute in `src/data/i18n.js`. In case the function finds a match, it will load the appropriate translation and pass the data as a parameter to the corresponding components..
+The function `getStaticPaths()` will receive these attributes from the URL and save them as a `const [lang]` variable.
 
-Example: `website.com/ES/` is a positive match for `es` attribute at `i18n.js` file:
+Another function will then compare the value of this variable with an attribute in `src/data/i18n.js`. In case the function finds a match, it will load the appropriate translation and pass the data as a parameter to the corresponding components..
 
-```
+<sub>E.g: `website.com/ES/` is a positive match for `es` attribute at `i18n.js` file:</sub><br/><br/>
+
+```js
 export const ui = {
-  es: {name:'el camino hacia el abismo'}
+  es: {name:'el camino hacia el abismo'},
   en: {name:'the path into the abyss'}
 }
 ```
+---
 
-Note: In case the url doesn't exist it'll return the default homepage in english.
-
-## Important Links:
-
-| Design Sample | Source Code |
-| --- | --- |
-| <a href="https://www.figma.com/community/file/1345111803067019836/game-website-ui-prototype-desktop-mobile-beakdown"><img height="25" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAA51BMVEUwMzwvMjovMjsmMToXMT1MNjh8OzSCSUlSPEHDRyf5Txz0Tg7/cmLNYVcfMTyqQyvyTh7xSxWxWFEJLDcuMTnKSCXXZVpTNTbzSwD/cmAzLx+tRkvdUXvSWUfRcG7QipqpZms9JyYuMDgsLTSDTs6iWf+nW/8AJAUAl8wAwP8tLzcmLil2SLWkVf8PhaYavP4jhrIvJikfLBupUP8AuO8vHhsGncktLjZCNVwaRkYqSFwrLDM2IEBwWbWDguAkHhAsLjYsLTUsJjITp20A1HsuEy0uIjIbk2UE2IgKz4MoS0ErLDQqODnoj8cFAAABZklEQVR4AaTMVQLCMBAE0N1JoO6O0/sfkqnLLy+eFfmHThvMDHytQ6AK2MuVHHIt3wpABRPj+RSEg8hgMgfjxE8pY4jyGKQqOrIpzUEqlOYgtPDPQXAISEtb7dvWFigBSDmAaVI/CII2DLuuC11TlgyXUk7M7f6g+vl6f76mL8ueQ/pR+atrLJAchmEA6Jn+pGpAPggzM7j/f89JOqZNTLsBuFmE7biI6IJ+tW/x4dHm+PSMnuehH3yLoSVEsSck71Ff6Q7t14jSkKLmqIWHmy0xRW5uoK9sJWYacvohUXiI6JUVW4kZXbqqm5boLr7rXyp2faZVRmuWDeM0M0sVBEHVa25ZpnomW7f9IPalz+jEilcF/UDbhRNHPsmAoQc1wEAs+1skNwD0IPYtrpPEaR2+oqgBwHgeO13nCAOw4QsoGgNc79u03UcAQ5qNIa+MQPt1XY2pzFdUZaqKHU9fN3yr6l9M9QI6YW0Sw7c5lAAAAABJRU5ErkJggg==" alt="a"/> </a>|<a href="https://github.com/orientalArg/intotheabyss"><img height="25" src="https://camo.githubusercontent.com/6859b81bad9211632c09ba0ba5aff3ce23d87f38bd199a05cfdd67b70d8ef58e/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f6769746875622e737667" alt="a"/></a> |
+>[!NOTE]
+>DISCLAIMER
+>
+><sub>All assets (images and GIFs) belong to Matias Rispau, and The Path Into The Abyss trademark, all copywriting was made by myself as well as the icons and the Metropolitan Area Map based on the information I could extract from The Abyss DevLog YouTube Video.</sub><br/>
+>
+><sub>© 2024/2025 Brainstorm Films & XMR Productions. All Rights Reserved. Matias Rispau’s, The Path Into The Abyss, and the Brainstorm logo are registered or unregistered trademarks of Brainstorm Films and XMR productions in Argentina and/or other countries.
+</sub><br/>
+>
+><sub>Microsoft, the Xbox Sphere mark, the Series X logo, Series S logo, Series X|S logo, Xbox One, Xbox Series X, Xbox Series S, and Xbox Series X|S are trademarks of the Microsoft group of companies. “PlayStation LOGO”, “PlayStation”, “PS5 LOGO” and “PS4 LOGO” are registered trademarks or trademarks of Sony Interactive Entertainment Inc.</sub>
