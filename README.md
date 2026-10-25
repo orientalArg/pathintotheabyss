@@ -4,8 +4,7 @@
 
   <a href="https://www.figma.com/community/file/1345111803067019836/game-website-ui-prototype-desktop-mobile-breakdown"><img alt="figma" src="https://img.shields.io/badge/figma%20→-design%20&%20prototype%20-white?style=for-the-badge&logo=figma&color=orangered"/></a>
 
-  <img src="https://www.upwork.com/att/download/portfolio/persons/uid/1634152552807448576/profile/projects/files/de350929-e339-4ce8-918c-ec663dcfd7d8"/>
-
+  <img src="https://github.com/orientalArg/pathintotheabyss/blob/main/homepage.png?raw=true" />
 
   <small>I created this Landing Page as a proposal for the a Video Game website called ”The Path Into The Abyss”. A videogame based on the universe created by filmmaker Matías Rispau.</small>
 </div>
@@ -55,7 +54,8 @@
 └── package.json
 ```
 
-##  Relative Paths, Copywriting & URLS
+## Relative Paths, Copywriting & URLS
+
 <sub>To Add, Update or Delete copywriting or urls you'll need to modify the info in the following files:</sub>
 
 * URLS & Relative Paths info: `src/data/links.js`
@@ -64,9 +64,8 @@
 >[!NOTE]
 ><sub>In case the url doesn't exist it'll return the default homepage in english.</sub>
 
-
-
 ## Translations
+
 <sub>To add a new translation follow the next steps:</sub>
 
 * Create a new copywriting following the default format at `src/data/i18n.js`
@@ -80,6 +79,7 @@ export function getStaticPaths () {
   ];
 }
 ```
+
 >[!TIP]
 >HOW DOES IT WORK
 
@@ -95,6 +95,7 @@ export const ui = {
   en: {name:'the path into the abyss'}
 }
 ```
+
 ---
 
 >[!NOTE]
